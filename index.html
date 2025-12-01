@@ -15,141 +15,26 @@
     gtag('config', 'G-0KKVWD84HW');
   </script>
   <style>
-    /* 基础样式 */
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #fafafa;
-      color: #222;
-      line-height: 1.7;
-    }
-    /* 头部导航栏 */
-    header {
-      width: 100%;
-      padding: 20px 40px;
-      background: #fff;
-      border-bottom: 1px solid #e5e5e5;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    /* 语言切换按钮样式 */
-    #lang-toggle {
-        cursor: pointer;
-        padding: 5px 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        background: #f7f7f7;
-        font-size: 14px;
-        transition: background 0.2s;
-        margin-left: 20px;
-    }
-    #lang-toggle:hover {
-        background: #eee;
-    }
-    
-    /* 导航链接样式 */
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #333;
-      font-size: 15px;
-      transition: color 0.2s ease;
-    }
-    nav a:hover {
-      color: #0070f3;
-    }
-    /* 全局链接样式 */
-    a {
-      color: #0070f3;
-      text-decoration: none;
-      border-bottom: 1px dotted rgba(0, 112, 243, 0.5); 
-      transition: color 0.2s, border-bottom 0.2s;
-    }
-    a:hover {
-      color: #0056b3;
-      border-bottom: 1px solid #0056b3;
-    }
-    
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .profile {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-    }
-    .avatar-placeholder {
-      width: 160px;
-      height: 160px;
-      background: #ddd;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #777;
-      font-size: 14px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 32px;
-      font-weight: 600;
-    }
-    h2 {
-      margin-top: 40px;
-      font-size: 22px;
-      font-weight: 600;
-      border-bottom: 2px solid #ddd; 
-      padding-bottom: 6px;
-    }
-    .subinfo {
-      margin: 6px 0 15px 0;
-      color: #555;
-      font-size: 15px;
-    }
-    /* 图标链接样式 */
-    .icons a {
-      margin-right: 14px;
-      text-decoration: none;
-      font-size: 14px;
-      color: #444;
-      border: none; 
-    }
-    .icons a:hover {
-      color: #000;
-    }
-    .icons i {
-        margin-right: 5px;
-    }
-
+    body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafafa; color: #222; line-height: 1.7; }
+    header { width: 100%; padding: 20px 40px; background: #fff; border-bottom: 1px solid #e5e5e5; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; }
+    #lang-toggle { cursor: pointer; padding: 5px 10px; border: 1px solid #ddd; border-radius: 4px; background: #f7f7f7; font-size: 14px; transition: background 0.2s; margin-left: 20px; }
+    #lang-toggle:hover { background: #eee; }
+    nav a { margin-left: 20px; text-decoration: none; color: #333; font-size: 15px; transition: color 0.2s ease; }
+    nav a:hover { color: #0070f3; }
+    a { color: #0070f3; text-decoration: none; border-bottom: 1px dotted rgba(0, 112, 243, 0.5); transition: color 0.2s, border-bottom 0.2s; }
+    a:hover { color: #0056b3; border-bottom: 1px solid #0056b3; }
+    .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+    .profile { display: flex; gap: 30px; align-items: center; }
+    .avatar-placeholder { width: 160px; height: 160px; background: #ddd; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #777; font-size: 14px; }
+    h1 { margin: 0; font-size: 32px; font-weight: 600; }
+    h2 { margin-top: 40px; font-size: 22px; font-weight: 600; border-bottom: 2px solid #ddd; padding-bottom: 6px; }
+    .subinfo { margin: 6px 0 15px 0; color: #555; font-size: 15px; }
+    .icons a { margin-right: 14px; text-decoration: none; font-size: 14px; color: #444; border: none; }
+    .icons a:hover { color: #000; }
+    .icons i { margin-right: 5px; }
     ul { padding-left: 20px; }
-
-    /* 页脚样式 */
-    footer {
-        width: 100%;
-        margin-top: 50px; 
-        border-top: 1px solid #eee;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        font-size: 14px; 
-        color: #777;
-        text-align: center;
-    }
-
-    /* 响应式设计 */
-    @media(max-width: 700px) {
-      .profile { flex-direction: column; text-align: center; }
-      header { padding: 15px 20px; }
-      nav a { margin-left: 10px; font-size: 14px; }
-      nav { display: flex; align-items: center; }
-    }
+    footer { width: 100%; margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px; padding-bottom: 20px; font-size: 14px; color: #777; text-align: center; }
+    @media(max-width: 700px) { .profile { flex-direction: column; text-align: center; } header { padding: 15px 20px; } nav a { margin-left: 10px; font-size: 14px; } nav { display: flex; align-items: center; } }
   </style>
 </head>
 <body>
@@ -166,7 +51,7 @@
     <a href="#awards" data-lang-key="navAwards">Awards</a>
     <a href="#skills" data-lang-key="navSkills">Skills</a>
     <a href="CV.pdf" data-lang-key="navCV">CV</a>
-    <button id="lang-toggle">中文 / EN</button>
+    <button id="lang-toggle" aria-label="Toggle language">中文 / EN</button>
   </nav>
 </header>
 
@@ -176,8 +61,7 @@
     <div class="avatar-placeholder" data-lang-key="photoPlaceholder">Your Photo Here</div>
     <div>
       <h1>Shijie Qu（屈士杰）</h1>
-      <div class="subinfo" data-lang-key="subInfo">Shenzhen Technology University · School of Artificial Intelligence<br>
-        Tsinghua University · Tsien Excellence Engineering Program (TEEP)</div>
+      <div class="subinfo" data-lang-key="subInfo">Shenzhen Technology University · School of Artificial Intelligence<br>Tsinghua University · Tsien Excellence Engineering Program (TEEP)</div>
 
       <div class="icons">
         <i class="fas fa-map-marker-alt"></i> <span data-lang-key="location">Shenzhen, China</span>
@@ -240,165 +124,106 @@
 </div>
 
 <footer>
-    <div class="container" style="text-align: center;">
-        <span data-lang-key="footerCopyright">&copy; 2025 Shijie Qu. Last updated: November 2025.</span>
-    </div>
+  <div class="container" style="text-align: center;">
+    <span data-lang-key="footerCopyright">&copy; 2025 Shijie Qu. Last updated: November 2025.</span>
+  </div>
 </footer>
 
 <script>
-    // --- 1. 语言数据定义 ---
-    const translations = {
-        en: {
-            pageTitle: "Shijie Qu | Academic Homepage",
-            headerName: "Shijie Qu",
-            navAbout: "About",
-            navEducation: "Education",
-            navPublications: "Publications",
-            navResearch: "Research",
-            navAwards: "Awards",
-            navSkills: "Skills",
-            navCV: "CV",
-            photoPlaceholder: "Your Photo Here",
-            subInfo: "Shenzhen Technology University · School of Artificial Intelligence<br>Tsinghua University · Tsien Excellence Engineering Program (TEEP)",
-            location: "Shenzhen, China",
-            iconCV: "Résumé",
-            h2About: "About Me",
-            pAbout: `I am an undergraduate in Data Science and Big Data Technology at Shenzhen Technology University.
-                Concurrently, as a student in the joint TEEP program between Tsinghua University and Shenzhen X-Institute,
-                I am engaged in advanced robotic gripper research focusing on **underactuated mechanisms** and **novel linkage-based**
-                designs for constrained-space manipulation. My goal is to develop highly efficient and adaptive robotic systems for complex real-world tasks.`,
-            h2Education: "Education",
-            ulEducation: `
-                <li><strong>Shenzhen Technology University</strong> — B.Sc. in Data Science and Big Data Technology (2023–2027)</li>
-                <li><strong>Tsinghua University · Shenzhen X-Institute</strong> — TEEP Joint Program (2024–Present)</li>
-            `,
-            h2Publications: "Publications",
-            // 确保 UL 内容使用当前的 innerHTML
-            ulPublications: document.querySelector('[data-lang-key="ulPublications"]').innerHTML, 
-            h2Research: "Research & Projects",
-            ulResearch: `
-                <li>
-                    <strong>Underactuated Robotic Gripper Research (Gamma, TPL Series)</strong><br>
-                    Designs for thin-object grasping, constrained-space manipulation, scooping, pinching, enveloping actions.
-                </li>
-                <li>
-                    <strong>Multi-Agent Node Cluster Optimization</strong><br>
-                    RL-based optimization of WAN routing and topology robustness.
-                </li>
-            `,
-            h2Awards: "Honors & Awards",
-            ulAwards: `
-                <li>ASME Student Mechanism & Robot Design Competition — <strong>Gold Medal</strong>, First Place Internationally (2025)</li>
-            `,
-            h2Skills: "Skills",
-            ulSkills: `
-                <li>Python, C/C++, MATLAB</li>
-                <li>SolidWorks, Arduino, Linux, VS Code, Docker</li>
-                <li>Chinese (Native), English (Fluent), Japanese (Proficient)</li>
-            `,
-            footerCopyright: "&copy; 2025 Shijie Qu. Last updated: November 2025.",
-        },
-        zh: {
-            pageTitle: "屈士杰 | 学术主页",
-            headerName: "屈士杰",
-            navAbout: "简介",
-            navEducation: "教育背景",
-            navPublications: "发表",
-            navResearch: "研究项目",
-            navAwards: "荣誉奖项",
-            navSkills: "技能",
-            navCV: "简历",
-            photoPlaceholder: "在此放置您的照片",
-            subInfo: "深圳技术大学 · 人工智能学院<br>清华大学 · 钱学森力学班联合培养项目 (TEEP)",
-            location: "中国，深圳",
-            iconCV: "简历",
-            h2About: "个人简介",
-            pAbout: `我是深圳技术大学数据科学与大数据技术专业的本科生。
-                同时，作为清华大学与深圳X-研究院联合培养的钱学森力学班（TEEP）学生，
-                我专注于先进机械手抓取技术的研究，重点是**欠驱动机构**和基于**新型连杆机构**的
-                设计，用于受限空间操作。我的目标是为复杂的实际任务开发高效、自适应的机器人系统。`,
-            h2Education: "教育背景",
-            ulEducation: `
-                <li><strong>深圳技术大学</strong> — 数据科学与大数据技术学士 (2023–2027)</li>
-                <li><strong>清华大学 · 深圳X-研究院</strong> — TEEP联合培养项目 (2024–至今)</li>
-            `,
-            h2Publications: "代表性成果",
-            ulPublications: `
-                <li>Qu S., Zhang W. <em>A Novel Robot Gripper with Scott Linkage...</em> ICCAS 2025. (已接收) 
-                    [<a href="#">PDF</a>] [<a href="#">项目页</a>] </li>
-                <li>Qu S., Zhang W., Zhang C. <em>Adaptive Grasp with Scott-Russell Linkages...</em> ROBIO 2025. (已接收) 
-                    [<a href="#">PDF</a>] [<a href="#">项目页</a>] </li>
-                <li>Qu S., Zhang W. <em>Gamma-X Gripper...</em> ICIA 2025. (已接收) 
-                    [<a href="#">PDF</a>] [<a href="#">项目页</a>] </li>
-                <li>Qu S., Zhang W., Zhang C. <em>TPL-Lambda Tendon Gripper...</em> RAAI 2025. (已接收) 
-                    [<a href="#">PDF</a>] [<a href="#">项目页</a>] </li>
-                <li>Qu S., Zhang W. <em>LTO Manipulation Paradigm...</em> ICRA 2026. (评审中) 
-                    [<a href="#">预印本</a>]</li>
-            `,
-            h2Research: "研究与项目",
-            ulResearch: `
-                <li>
-                    <strong>欠驱动机械手抓取研究 (Gamma, TPL 系列)</strong><br>
-                    针对薄物体抓取、受限空间操作、铲取、捏合和包络动作进行设计。
-                </li>
-                <li>
-                    <strong>多智能体节点集群优化</strong><br>
-                    基于强化学习 (RL) 对广域网 (WAN) 路由效率和拓扑鲁棒性进行优化。
-                </li>
-            `,
-            h2Awards: "荣誉与奖项",
-            ulAwards: `
-                <li>ASME 学生机构与机器人设计竞赛 — <strong>金奖</strong>，国际第一名 (2025)</li>
-            `,
-            h2Skills: "掌握技能",
-            ulSkills: `
-                <li>Python, C/C++, MATLAB</li>
-                <li>SolidWorks, Arduino, Linux, VS Code, Docker</li>
-                <li>中文 (母语), 英文 (流利), 日语 (精通)</li>
-            `,
-            footerCopyright: "&copy; 2025 屈士杰. 最后更新: 2025年11月.",
-        }
-    };
+document.addEventListener('DOMContentLoaded', () => {
 
-    let currentLang = 'en'; // 默认语言
-    const langToggleBtn = document.getElementById('lang-toggle');
-
-    // --- 2. 核心内容更新函数 ---
-    function updateContent(lang) {
-        const elements = document.querySelectorAll('[data-lang-key]');
-        const texts = translations[lang];
-        
-        elements.forEach(el => {
-            const key = el.getAttribute('data-lang-key');
-            if (texts[key] !== undefined) {
-                // 对于复杂的 HTML 片段（如 P, UL, DIV, H2），使用 innerHTML 
-                if (['TITLE', 'SPAN', 'STRONG', 'H2', 'P', 'UL', 'DIV'].includes(el.tagName)) {
-                    el.innerHTML = texts[key]; 
-                } else if (el.tagName === 'A') {
-                    el.textContent = texts[key];
-                } else {
-                    el.textContent = texts[key];
-                }
-
-                 // 额外处理页面语言属性
-                if (key === 'pageTitle') {
-                    document.documentElement.lang = lang;
-                }
-            }
-        });
-    }
-
-    // --- 3. 切换逻辑 ---
-    langToggleBtn.addEventListener('click', () => {
-        currentLang = currentLang === 'en' ? 'zh' : 'en';
-        updateContent(currentLang);
-    });
-
-    // --- 4. 初始加载 ---
-    document.addEventListener('DOMContentLoaded', () => {
-        updateContent(currentLang); 
-    });
-</script>
-
-</body>
-</html>
+  const translations = {
+    en: {
+      pageTitle: "Shijie Qu | Academic Homepage",
+      headerName: "Shijie Qu",
+      navAbout: "About",
+      navEducation: "Education",
+      navPublications: "Publications",
+      navResearch: "Research",
+      navAwards: "Awards",
+      navSkills: "Skills",
+      navCV: "CV",
+      photoPlaceholder: "Your Photo Here",
+      subInfo: "Shenzhen Technology University · School of Artificial Intelligence<br>Tsinghua University · Tsien Excellence Engineering Program (TEEP)",
+      location: "Shenzhen, China",
+      iconCV: "Résumé",
+      h2About: "About Me",
+      pAbout: `I am an undergraduate in Data Science and Big Data Technology at Shenzhen Technology University.
+        Concurrently, as a student in the joint TEEP program between Tsinghua University and Shenzhen X-Institute,
+        I am engaged in advanced robotic gripper research focusing on **underactuated mechanisms** and **novel linkage-based**
+        designs for constrained-space manipulation. My goal is to develop highly efficient and adaptive robotic systems for complex real-world tasks.`,
+      h2Education: "Education",
+      ulEducation: `
+        <li><strong>Shenzhen Technology University</strong> — B.Sc. in Data Science and Big Data Technology (2023–2027)</li>
+        <li><strong>Tsinghua University · Shenzhen X-Institute</strong> — TEEP Joint Program (2024–Present)</li>
+      `,
+      h2Publications: "Publications",
+      ulPublications: `
+        <li>Qu S., Zhang W. <em>A Novel Robot Gripper with Scott Linkage...</em> ICCAS 2025. (Accepted) [<a href="#">PDF</a>] [<a href="#">Project</a>]</li>
+        <li>Qu S., Zhang W., Zhang C. <em>Adaptive Grasp with Scott-Russell Linkages...</em> ROBIO 2025. (Accepted) [<a href="#">PDF</a>] [<a href="#">Project</a>]</li>
+        <li>Qu S., Zhang W. <em>Gamma-X Gripper...</em> ICIA 2025. (Accepted) [<a href="#">PDF</a>] [<a href="#">Project</a>]</li>
+        <li>Qu S., Zhang W., Zhang C. <em>TPL-Lambda Tendon Gripper...</em> RAAI 2025. (Accepted) [<a href="#">PDF</a>] [<a href="#">Project</a>]</li>
+        <li>Qu S., Zhang W. <em>LTO Manipulation Paradigm...</em> ICRA 2026. (Under Review) [<a href="#">Preprint</a>]</li>
+      `,
+      h2Research: "Research & Projects",
+      ulResearch: `
+        <li><strong>Underactuated Robotic Gripper Research (Gamma, TPL Series)</strong><br>
+        Designs for thin-object grasping, constrained-space manipulation, scooping, pinching, enveloping actions.</li>
+        <li><strong>Multi-Agent Node Cluster Optimization</strong><br>
+        RL-based optimization of WAN routing and topology robustness.</li>
+      `,
+      h2Awards: "Honors & Awards",
+      ulAwards: `<li>ASME Student Mechanism & Robot Design Competition — <strong>Gold Medal</strong>, First Place Internationally (2025)</li>`,
+      h2Skills: "Skills",
+      ulSkills: `
+        <li>Python, C/C++, MATLAB</li>
+        <li>SolidWorks, Arduino, Linux, VS Code, Docker</li>
+        <li>Chinese (Native), English (Fluent), Japanese (Proficient)</li>
+      `,
+      footerCopyright: "&copy; 2025 Shijie Qu. Last updated: November 2025."
+    },
+    zh: {
+      pageTitle: "屈士杰 | 学术主页",
+      headerName: "屈士杰",
+      navAbout: "简介",
+      navEducation: "教育背景",
+      navPublications: "代表性成果",
+      navResearch: "研究与项目",
+      navAwards: "荣誉奖项",
+      navSkills: "技能",
+      navCV: "简历",
+      photoPlaceholder: "在此放置您的照片",
+      subInfo: "深圳技术大学 · 人工智能学院<br>清华大学 · 钱学森力学班联合培养项目 (TEEP)",
+      location: "中国，深圳",
+      iconCV: "简历",
+      h2About: "个人简介",
+      pAbout: `我是深圳技术大学数据科学与大数据技术专业的本科生。
+        同时，作为清华大学与深圳X-研究院联合培养的钱学森力学班（TEEP）学生，
+        我专注于先进机械手抓取技术的研究，重点是**欠驱动机构**和基于**新型连杆机构**的
+        设计，用于受限空间操作。我的目标是为复杂的实际任务开发高效、自适应的机器人系统。`,
+      h2Education: "教育背景",
+      ulEducation: `
+        <li><strong>深圳技术大学</strong> — 数据科学与大数据技术学士 (2023–2027)</li>
+        <li><strong>清华大学 · 深圳X-研究院</strong> — TEEP联合培养项目 (2024–至今)</li>
+      `,
+      h2Publications: "代表性成果",
+      ulPublications: `
+        <li>Qu S., Zhang W. <em>A Novel Robot Gripper with Scott Linkage...</em> ICCAS 2025. (已接收) [<a href="#">PDF</a>] [<a href="#">项目页</a>]</li>
+        <li>Qu S., Zhang W., Zhang C. <em>Adaptive Grasp with Scott-Russell Linkages...</em> ROBIO 2025. (已接收) [<a href="#">PDF</a>] [<a href="#">项目页</a>]</li>
+        <li>Qu S., Zhang W. <em>Gamma-X Gripper...</em> ICIA 2025. (已接收) [<a href="#">PDF</a>] [<a href="#">项目页</a>]</li>
+        <li>Qu S., Zhang W., Zhang C. <em>TPL-Lambda Tendon Gripper...</em> RAAI 2025. (已接收) [<a href="#">PDF</a>] [<a href="#">项目页</a>]</li>
+        <li>Qu S., Zhang W. <em>LTO Manipulation Paradigm...</em> ICRA 2026. (评审中) [<a href="#">预印本</a>]</li>
+      `,
+      h2Research: "研究与项目",
+      ulResearch: `
+        <li><strong>欠驱动机械手抓取研究 (Gamma, TPL 系列)</strong><br>
+        针对薄物体抓取、受限空间操作、铲取、捏合和包络动作进行设计。</li>
+        <li><strong>多智能体节点集群优化</strong><br>
+        基于强化学习 (RL) 对广域网 (WAN) 路由效率和拓扑鲁棒性进行优化。</li>
+      `,
+      h2Awards: "荣誉与奖项",
+      ulAwards: `<li>ASME 学生机构与机器人设计竞赛 — <strong>金奖</strong>，国际第一名 (2025)</li>`,
+      h2Skills: "掌握技能",
+      ulSkills: `
+        <li>Python, C/C++, MATLAB</li>
+        <li>SolidWorks, Arduino, Linux, VS Code, Docker</li>
