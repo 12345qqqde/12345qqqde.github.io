@@ -3,101 +3,174 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>个人主页</title>
+  <title>Shijie Qu | Academic Homepage</title>
   <style>
     body {
-      font-family: system-ui, sans-serif;
       margin: 0;
-      background: #f7f7f7;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #fafafa;
       color: #222;
+      line-height: 1.7;
     }
     header {
-      padding: 80px 20px;
-      text-align: center;
+      width: 100%;
+      padding: 20px 40px;
       background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      border-bottom: 1px solid #e5e5e5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-    .name {
-      font-size: 2.4rem;
-      font-weight: 600;
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-size: 15px;
     }
-    .subtitle {
-      margin-top: 8px;
-      font-size: 1.1rem;
-      color: #666;
+    nav a:hover {
+      color: #0070f3;
     }
-    section {
-      max-width: 850px;
+
+    .container {
+      max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
     }
+
+    .profile {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+    .avatar-placeholder {
+      width: 160px;
+      height: 160px;
+      background: #ddd;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #777;
+      font-size: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 600;
+    }
     h2 {
-      border-left: 4px solid #444;
-      padding-left: 10px;
-      font-size: 1.4rem;
-      margin-bottom: 12px;
+      margin-top: 40px;
+      font-size: 22px;
+      font-weight: 600;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 6px;
     }
-    .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      margin-bottom: 20px;
-      line-height: 1.7;
+    .subinfo {
+      margin: 6px 0 15px 0;
+      color: #555;
+      font-size: 15px;
     }
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: #888;
-      font-size: 0.9rem;
+    .icons a {
+      margin-right: 14px;
+      text-decoration: none;
+      font-size: 14px;
+      color: #444;
+    }
+    .icons a:hover {
+      color: #000;
+    }
+
+    ul { padding-left: 20px; }
+
+    @media(max-width: 700px) {
+      .profile { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="name">你的名字</div>
-    <div class="subtitle">数据科学 / 机械工程方向 | 求职 & 科研主页</div>
-  </header>
 
-  <section>
-    <h2>个人简介</h2>
-    <div class="card">
-      在这里写一段简短而有力量的自我介绍，展示你的背景、研究方向和核心优势。
-    </div>
+<header>
+  <div>
+    <strong>Shijie Qu</strong>
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#publications">Publications</a>
+    <a href="#research">Research</a>
+    <a href="#awards">Awards</a>
+    <a href="#skills">Skills</a>
+    <a href="CV.pdf">CV</a>
+  </nav>
+</header>
 
-    <h2>教育背景</h2>
-    <div class="card">
-      深圳技术大学 · 数据科学与大数据技术（本科）<br />
-      清华大学联合培养 / 力学方向相关经验等...
-    </div>
+<div class="container">
 
-    <h2>科研与项目</h2>
-    <div class="card">
-      <strong>项目名称：</strong> 简要介绍你的研究或工程实践成果。
-    </div>
-    <div class="card">
-      <strong>项目名称：</strong> 更多项目或科研经历写在这里。
-    </div>
+  <div class="profile">
+    <div class="avatar-placeholder">Your Photo Here</div>
+    <div>
+      <h1>Shijie Qu（屈士杰）</h1>
+      <div class="subinfo">Shenzhen Technology University · School of Artificial Intelligence<br>
+      Tsinghua University · Tsien Excellence Engineering Program (TEEP)</div>
 
-    <h2>技能</h2>
-    <div class="card">
-      机械设计、机构学分析、Python、C++、深度学习、优化算法等...
+      <div class="icons">
+        📍 Shenzhen, China
+        · <a href="CV.pdf">Résumé</a>
+        · <a href="#">Scholar</a>
+        · <a href="#">ORCID</a>
+        · <a href="mailto:qushijie644@gmail.com">Email</a>
+      </div>
     </div>
+  </div>
 
-    <h2>荣誉与竞赛</h2>
-    <div class="card">
-      写你的竞赛、奖项或重要表现。
-    </div>
+  <h2 id="about">About Me</h2>
+  <p>
+    I am an undergraduate in Data Science and Big Data Technology at Shenzhen Technology University.
+    Concurrently, as a student in the joint TEEP program between Tsinghua University and Shenzhen X-Institute,
+    I am engaged in advanced robotic gripper research focusing on underactuated mechanisms and novel linkage-based
+    designs for constrained-space manipulation.
+  </p>
 
-    <h2>联系方式</h2>
-    <div class="card">
-      Email: your@email.com<br />
-      GitHub / 主页链接放这里
-    </div>
-  </section>
+  <h2 id="education">Education</h2>
+  <ul>
+    <li><strong>Shenzhen Technology University</strong> — B.Sc. in Data Science and Big Data Technology (2023–2027)</li>
+    <li><strong>Tsinghua University · Shenzhen X-Institute</strong> — TEEP Joint Program (2024–Present)</li>
+  </ul>
 
-  <footer>
-    © 2025 你的名字
-  </footer>
+  <h2 id="publications">Publications</h2>
+  <ul>
+    <li>Qu S., Zhang W. <em>A Novel Robot Gripper with Scott Linkage...</em> ICCAS 2025. (Accepted)</li>
+    <li>Qu S., Zhang W., Zhang C. <em>Adaptive Grasp with Scott-Russell Linkages...</em> ROBIO 2025. (Accepted)</li>
+    <li>Qu S., Zhang W. <em>Gamma-X Gripper...</em> ICIA 2025. (Accepted)</li>
+    <li>Qu S., Zhang W., Zhang C. <em>TPL-Lambda Tendon Gripper...</em> RAAI 2025. (Accepted)</li>
+    <li>Qu S., Zhang W. <em>LTO Manipulation Paradigm...</em> ICRA 2026. (Under Review)</li>
+  </ul>
+
+  <h2 id="research">Research & Projects</h2>
+  <ul>
+    <li><strong>Underactuated Robotic Gripper Research (Gamma, TPL Series)</strong><br>
+    Designs for thin-object grasping, constrained-space manipulation, scooping, pinching, enveloping actions.</li>
+    <li><strong>Multi-Agent Node Cluster Optimization</strong><br>
+    RL-based optimization of WAN routing and topology robustness.</li>
+  </ul>
+
+  <h2 id="awards">Honors & Awards</h2>
+  <ul>
+    <li>ASME Student Mechanism & Robot Design Competition — <strong>Gold Medal</strong>, First Place Internationally (2025)</li>
+  </ul>
+
+  <h2 id="skills">Skills</h2>
+  <ul>
+    <li>Python, C/C++, MATLAB</li>
+    <li>SolidWorks, Arduino, Linux, VS Code, Docker</li>
+    <li>Chinese (Native), English (Fluent), Japanese (Proficient)</li>
+  </ul>
+
+</div>
+
 </body>
 </html>
