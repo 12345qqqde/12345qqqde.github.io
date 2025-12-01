@@ -7,8 +7,15 @@
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMD/CD65fNJ00yY6XyK4yV0T2Xp2l2t4P4yFpBqM1A0K5+L62y4n3u5w0h6f5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0KKVWD84HW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0KKVWD84HW');
+  </script>
   <style>
-    /* 你的原有 CSS 样式 */
+    /* 基础样式 */
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -16,6 +23,7 @@
       color: #222;
       line-height: 1.7;
     }
+    /* 头部导航栏 */
     header {
       width: 100%;
       padding: 20px 40px;
@@ -28,7 +36,7 @@
       top: 0;
       z-index: 10;
     }
-    /* 增加语言切换按钮的样式 */
+    /* 语言切换按钮样式 */
     #lang-toggle {
         cursor: pointer;
         padding: 5px 10px;
@@ -43,7 +51,7 @@
         background: #eee;
     }
     
-    /* 导航栏和链接样式 (微调) */
+    /* 导航链接样式 */
     nav a {
       margin-left: 20px;
       text-decoration: none;
@@ -54,6 +62,7 @@
     nav a:hover {
       color: #0070f3;
     }
+    /* 全局链接样式 */
     a {
       color: #0070f3;
       text-decoration: none;
@@ -97,7 +106,7 @@
       margin-top: 40px;
       font-size: 22px;
       font-weight: 600;
-      border-bottom: 2px solid #ddd; /* 优化分隔线颜色 */
+      border-bottom: 2px solid #ddd; 
       padding-bottom: 6px;
     }
     .subinfo {
@@ -105,12 +114,13 @@
       color: #555;
       font-size: 15px;
     }
+    /* 图标链接样式 */
     .icons a {
       margin-right: 14px;
       text-decoration: none;
       font-size: 14px;
       color: #444;
-      border: none; /* 图标链接不加底线 */
+      border: none; 
     }
     .icons a:hover {
       color: #000;
@@ -133,6 +143,7 @@
         text-align: center;
     }
 
+    /* 响应式设计 */
     @media(max-width: 700px) {
       .profile { flex-direction: column; text-align: center; }
       header { padding: 15px 20px; }
@@ -262,7 +273,8 @@
                 <li><strong>Tsinghua University · Shenzhen X-Institute</strong> — TEEP Joint Program (2024–Present)</li>
             `,
             h2Publications: "Publications",
-            ulPublications: document.querySelector('[data-lang-key="ulPublications"]').innerHTML, // 使用原有的英文HTML
+            // 确保 UL 内容使用当前的 innerHTML
+            ulPublications: document.querySelector('[data-lang-key="ulPublications"]').innerHTML, 
             h2Research: "Research & Projects",
             ulResearch: `
                 <li>
@@ -303,7 +315,7 @@
             h2About: "个人简介",
             pAbout: `我是深圳技术大学数据科学与大数据技术专业的本科生。
                 同时，作为清华大学与深圳X-研究院联合培养的钱学森力学班（TEEP）学生，
-                我专注于先进机械手抓取技术的研究，重点是欠驱动机构和基于**新型连杆机构**的
+                我专注于先进机械手抓取技术的研究，重点是**欠驱动机构**和基于**新型连杆机构**的
                 设计，用于受限空间操作。我的目标是为复杂的实际任务开发高效、自适应的机器人系统。`,
             h2Education: "教育背景",
             ulEducation: `
@@ -356,25 +368,19 @@
         const elements = document.querySelectorAll('[data-lang-key]');
         const texts = translations[lang];
         
-        // 遍历所有需要翻译的元素
         elements.forEach(el => {
             const key = el.getAttribute('data-lang-key');
             if (texts[key] !== undefined) {
-                // 对于简单的文本（如 h2, title, span），使用 textContent 或 innerHTML
-                if (el.tagName === 'TITLE' || el.tagName === 'SPAN' || el.tagName === 'STRONG' || el.tagName === 'H2' || el.tagName === 'P') {
-                    // 使用 innerHTML 允许文本中包含 <strong> 或 <br> 等标签
+                // 对于复杂的 HTML 片段（如 P, UL, DIV, H2），使用 innerHTML 
+                if (['TITLE', 'SPAN', 'STRONG', 'H2', 'P', 'UL', 'DIV'].includes(el.tagName)) {
                     el.innerHTML = texts[key]; 
                 } else if (el.tagName === 'A') {
-                    // 导航链接直接设置文本
                     el.textContent = texts[key];
-                } else if (el.tagName === 'UL' || el.tagName === 'DIV') {
-                    // 对于 ul 或 div 等包含复杂结构的元素，替换 innerHTML
-                    el.innerHTML = texts[key];
                 } else {
                     el.textContent = texts[key];
                 }
 
-                 // 额外处理页面语言属性和头像提示文本
+                 // 额外处理页面语言属性
                 if (key === 'pageTitle') {
                     document.documentElement.lang = lang;
                 }
@@ -389,10 +395,7 @@
     });
 
     // --- 4. 初始加载 ---
-    // 页面加载完成后，确保初始内容是正确的（默认是英文，但为了以防万一，再运行一次）
     document.addEventListener('DOMContentLoaded', () => {
-        // 由于你的 HTML 模板是英文，为了避免闪烁，可以考虑先加载中文（如果默认需要中文）
-        // 这里保持默认英文加载，点击后切换到中文
         updateContent(currentLang); 
     });
 </script>
