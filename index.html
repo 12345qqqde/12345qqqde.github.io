@@ -37,14 +37,14 @@
       position: relative;
       flex: 0 0 160px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      background: #fff;
+      border: 1px solid #e8e8e8;
     }
-
-
     .avatar-swap img {
       position: absolute;
       inset: 0;
       width: 100%;
-      height: auto;
+      height: 100%;
       object-fit: contain;
       transition: opacity 180ms ease, transform 220ms ease;
       will-change: opacity, transform;
@@ -60,11 +60,69 @@
     h1 { margin: 0; font-size: 32px; font-weight: 600; }
     h2 { margin-top: 40px; font-size: 22px; font-weight: 600; border-bottom: 2px solid #ddd; padding-bottom: 6px; }
     .subinfo { margin: 6px 0 15px 0; color: #555; font-size: 15px; }
+    .icons { color: #444; font-size: 14px; }
     .icons a { margin-right: 14px; text-decoration: none; font-size: 14px; color: #444; border: none; }
     .icons a:hover { color: #000; }
     .icons i { margin-right: 5px; }
+
+    .disabled-link {
+      color: #888;
+      border: none;
+      cursor: not-allowed;
+      text-decoration: none;
+    }
+    .disabled-link:hover { color: #888; border: none; }
+
     ul { padding-left: 20px; }
     footer { width: 100%; margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px; padding-bottom: 20px; font-size: 14px; color: #777; text-align: center; }
+
+    /* --- Timeline dropdown --- */
+    .timeline {
+      margin: 0 0 22px 0;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 10px 14px;
+    }
+    .timeline summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      gap: 12px;
+    }
+    .timeline summary::-webkit-details-marker { display: none; }
+
+    .timeline .hint {
+      font-weight: 400;
+      color: #666;
+      font-size: 13px;
+      margin-left: auto;
+    }
+
+    .timeline .chev {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      border: 1px solid #e6e6e6;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 160ms ease, background 160ms ease;
+      background: #fafafa;
+      flex: 0 0 auto;
+    }
+    .timeline[open] .chev { transform: rotate(180deg); background: #f3f3f3; }
+
+    .timeline ul {
+      margin: 12px 0 0 0;
+      padding-left: 18px;
+    }
+    .timeline li { margin: 8px 0; }
+    .timeline .year { font-weight: 700; margin-right: 6px; }
 
     @media(max-width: 700px) {
       .profile { flex-direction: column; text-align: center; }
@@ -72,6 +130,8 @@
       nav a { margin-left: 10px; font-size: 14px; }
       nav { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
       .avatar-swap { margin-bottom: 10px; }
+      .timeline summary { gap: 10px; }
+      .timeline .hint { display: none; }
     }
   </style>
 </head>
@@ -88,74 +148,102 @@
     <a href="#research" data-lang-key="navResearch">Research</a>
     <a href="#awards" data-lang-key="navAwards">Awards</a>
     <a href="#skills" data-lang-key="navSkills">Skills</a>
-    <a href="CV.pdf" target="_blank" data-lang-key="navCV">CV</a>
+    <a href="CV.pdf" target="_blank" rel="noopener" data-lang-key="navCV">CV</a>
     <button id="lang-toggle" aria-label="Toggle language">中文 / EN</button>
   </nav>
 </header>
 
 <div class="container">
+
+  <!-- Development timeline dropdown -->
+  <details class="timeline" id="timeline">
+    <summary>
+      <span data-lang-key="timelineTitle">Development Timeline</span>
+      <span class="hint" data-lang-key="timelineHint">Click to expand</span>
+      <span class="chev" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
+    </summary>
+    <ul data-lang-key="timelineList">
+      <li><span class="year">2023</span>Entered Shenzhen Technology University (Data Science & Big Data Technology).</li>
+      <li><span class="year">2024</span>Joined the Tsinghua–Shenzhen X-Institute Tsien Excellence Engineering Program (TEEP).</li>
+      <li><span class="year">2025</span>Accepted papers: ICCAS 2025, ROBIO 2025, ICIA 2025, RAAI 2025.</li>
+      <li><span class="year">2025</span>ASME Student Mechanism & Robot Design Competition — Gold Medal (1st Place).</li>
+    </ul>
+  </details>
+
   <div class="profile">
-    <!-- Replace placeholder with hover-swapping avatar -->
     <div class="avatar-swap" aria-label="Profile photo">
       <img class="base" src="images/avatar.png" alt="Shijie Qu portrait">
+      <!-- Strongly recommended: rename file to "avatar_hover.png" and update the src accordingly -->
       <img class="hover" src="images/avatar hover.png" alt="Shijie Qu portrait alternate">
     </div>
 
     <div>
       <h1>Shijie Qu（屈士杰）</h1>
-      <div class="subinfo" data-lang-key="subInfo">Shenzhen Technology University · School of Artificial Intelligence<br>Tsinghua University · Tsien Excellence Engineering Program (TEEP)</div>
+
+      <div class="subinfo" data-lang-key="subInfo">
+        Shenzhen Technology University · School of Artificial Intelligence (<a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">official</a>)<br>
+        Tsinghua University – Shenzhen X-Institute (TEEP) (<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">official</a>)
+      </div>
 
       <div class="icons">
         <i class="fas fa-map-marker-alt"></i> <span data-lang-key="location">Shenzhen, China</span>
-        · <a href="CV.pdf" target="_blank"><i class="fas fa-file-pdf"></i><span data-lang-key="iconCV">Résumé</span></a>
-        · <a href="#"><i class="fas fa-graduation-cap"></i>Scholar</a>
-        · <a href="#"><i class="fab fa-orcid"></i>ORCID</a>
+        · <a href="CV.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i><span data-lang-key="iconCV">Résumé</span></a>
+        · <span class="disabled-link"><i class="fas fa-graduation-cap"></i><span data-lang-key="iconScholar">Scholar (TBD)</span></span>
+        · <span class="disabled-link"><i class="fab fa-orcid"></i><span data-lang-key="iconOrcid">ORCID (TBD)</span></span>
         · <a href="mailto:qushijie644@gmail.com"><i class="fas fa-envelope"></i>Email</a>
-        · <a href="#"><i class="fab fa-github"></i>GitHub</a>
+        · <a href="https://github.com/12345qqqde" target="_blank" rel="noopener"><i class="fab fa-github"></i>GitHub</a>
       </div>
     </div>
   </div>
 
   <h2 id="about" data-lang-key="h2About">About Me</h2>
   <p data-lang-key="pAbout">
-    I am an undergraduate in Data Science and Big Data Technology at Shenzhen Technology University.
-    Concurrently, as a student in the joint TEEP program between Tsinghua University and Shenzhen X-Institute,
-    I am engaged in advanced robotic gripper research focusing on <strong>underactuated mechanisms</strong> and <strong>novel linkage-based</strong>
-    designs for constrained-space manipulation. My goal is to develop highly efficient and adaptive robotic systems for complex real-world tasks.
+    I am an undergraduate in Data Science and Big Data Technology at <a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">Shenzhen Technology University</a>.
+    Concurrently, as a student in the Tsien Excellence Engineering Program (TEEP) conducted via
+    <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">Shenzhen X-Institute</a>,
+    I am engaged in robotic gripper research focusing on <strong>underactuated mechanisms</strong> and <strong>linkage-based designs</strong>
+    for constrained-space manipulation. My goal is to develop efficient and adaptive robotic systems for real-world tasks.
   </p>
 
   <h2 id="education" data-lang-key="h2Education">Education</h2>
   <ul data-lang-key="ulEducation">
-    <li><strong>Shenzhen Technology University</strong> — B.Sc. in Data Science and Big Data Technology (2023–2027)</li>
-    <li><strong>Tsinghua University · Shenzhen X-Institute</strong> — TEEP Joint Program (2024–Present)</li>
+    <li><strong>Shenzhen Technology University</strong> — B.Sc. in Data Science and Big Data Technology (2023–2027) [<a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">Official</a>]</li>
+    <li><strong>Tsinghua University – Shenzhen X-Institute</strong> — Tsien Excellence Engineering Program (TEEP) (2024–Present) [<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">Official</a>]</li>
   </ul>
 
   <h2 id="publications" data-lang-key="h2Publications">Publications</h2>
   <ul data-lang-key="ulPublications">
+
     <li>
       Qu S., Zhang W.
       <em>Gamma Gripper: An Underactuated Environment-Adaptive Robotic Gripper Based on Scott-Russell Mechanism for Thin Object Manipulation</em>.
       ICCAS 2025. (Accepted)
-      [<a href="papers/ICCAS2025_Gamma_Qu.pdf" target="_blank">
-        <i class="fas fa-file-pdf"></i> PDF
-      </a>]
-      [<a href="https://www.bilibili.com/video/BV14RggzQEkM/" target="_blank">
-        <i class="fas fa-video"></i> Video
-      </a>]
+      [<a href="papers/ICCAS2025_Gamma_Qu.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>]
+      [<a href="https://www.bilibili.com/video/BV14RggzQEkM/" target="_blank" rel="noopener"><i class="fas fa-video"></i> Video</a>]
     </li>
 
-    <li>Qu S., Zhang W., Zhang C. <em>Adaptive Grasp with Scott-Russell Linkages...</em> ROBIO 2025. (Accepted) [<a href="#">PDF</a>] [<a href="#">Project</a>]</li>
-    <li>Qu S., Zhang W. <em>Gamma-X Gripper...</em> ICIA 2025. (Accepted) [<a href="#">PDF</a>] [<a href="#">Project</a>]</li>
+    <li>
+      Qu S., Zhang W., Zhang C.
+      <em>Adaptive Grasp with Scott-Russell Linkages...</em>
+      ROBIO 2025. (Accepted)
+      [<span class="disabled-link"><i class="fas fa-file-pdf"></i> PDF (TBD)</span>]
+      [<span class="disabled-link"><i class="fas fa-link"></i> Project (TBD)</span>]
+    </li>
+
+    <li>
+      Qu S., Zhang W.
+      <em>Gamma-X Gripper...</em>
+      ICIA 2025. (Accepted)
+      [<span class="disabled-link"><i class="fas fa-file-pdf"></i> PDF (TBD)</span>]
+      [<span class="disabled-link"><i class="fas fa-link"></i> Project (TBD)</span>]
+    </li>
+
     <li>
       Qu S., Zhang W., Zhang C.
       <em>TPL-Lambda Tendon Gripper: A Tendon-Driven Gripper with Pinching and Lifting Capability Based on Scott Mechanism</em>.
       RAAI 2025. (Accepted)
-      [<a href="papers/RAAI2025_TPL_Lambda_Qu.pdf" target="_blank">
-        <i class="fas fa-file-pdf"></i> PDF
-      </a>]
-      [<a href="https://www.bilibili.com/video/BV1rAFCzgEEN/" target="_blank">
-        <i class="fas fa-video"></i> Video
-      </a>]
+      [<a href="papers/RAAI2025_TPL_Lambda_Qu.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>]
+      [<a href="https://www.bilibili.com/video/BV1rAFCzgEEN/" target="_blank" rel="noopener"><i class="fas fa-video"></i> Video</a>]
     </li>
 
   </ul>
@@ -174,7 +262,11 @@
 
   <h2 id="awards" data-lang-key="h2Awards">Honors & Awards</h2>
   <ul data-lang-key="ulAwards">
-    <li>ASME Student Mechanism & Robot Design Competition — <strong>Gold Medal</strong>, First Place Internationally (2025)</li>
+    <li data-lang-key="awardAsme">
+      ASME Student Mechanism & Robot Design Competition — <strong>Gold Medal</strong>, First Place Internationally (2025)
+      [<a href="https://sites.google.com/site/asmemrc/design-competition-showcase" target="_blank" rel="noopener">Competition</a>]
+      [<a href="https://sites.google.com/site/asmemrc/design-competition-showcase/2025-finalists" target="_blank" rel="noopener">Finalists</a>]
+    </li>
   </ul>
 
   <h2 id="skills" data-lang-key="h2Skills">Skills</h2>
@@ -183,6 +275,17 @@
     <li>SolidWorks, Arduino, Linux, VS Code, Docker</li>
     <li>Chinese (Native), English (Fluent), Japanese (Proficient)</li>
   </ul>
+
+  <h2 id="outreach" data-lang-key="h2Outreach">Public Outreach</h2>
+  <ul data-lang-key="ulOutreach">
+    <li>
+      Research communication on
+      <a href="https://www.xiaohongshu.com/user/profile/651e09550000000024017d81?xsec_token=AB3KO9O-SieanLzGw5D8dD6aL2Kb6tTWjnLiq1oOdbY9s%3D&xsec_source=pc_search" target="_blank" rel="noopener">
+        Xiaohongshu
+      </a>.
+    </li>
+  </ul>
+
 </div>
 
 <footer>
@@ -205,47 +308,71 @@ document.addEventListener('DOMContentLoaded', () => {
       navAwards: "Awards",
       navSkills: "Skills",
       navCV: "CV",
-      subInfo: "Shenzhen Technology University · School of Artificial Intelligence<br>Tsinghua University · Tsien Excellence Engineering Program (TEEP)",
+
+      timelineTitle: "Development Timeline",
+      timelineHint: "Click to expand",
+      timelineList: `
+        <li><span class="year">2023</span>Entered Shenzhen Technology University (Data Science & Big Data Technology).</li>
+        <li><span class="year">2024</span>Joined the Tsinghua–Shenzhen X-Institute Tsien Excellence Engineering Program (TEEP).</li>
+        <li><span class="year">2025</span>Accepted papers: ICCAS 2025, ROBIO 2025, ICIA 2025, RAAI 2025.</li>
+        <li><span class="year">2025</span>ASME Student Mechanism & Robot Design Competition — Gold Medal (1st Place).</li>
+      `,
+
+      subInfo: `Shenzhen Technology University · School of Artificial Intelligence (<a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">official</a>)<br>
+               Tsinghua University – Shenzhen X-Institute (TEEP) (<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">official</a>)`,
       location: "Shenzhen, China",
       iconCV: "Résumé",
+      iconScholar: "Scholar (TBD)",
+      iconOrcid: "ORCID (TBD)",
+
       h2About: "About Me",
-      pAbout: `I am an undergraduate in Data Science and Big Data Technology at Shenzhen Technology University.
-        Concurrently, as a student in the joint TEEP program between Tsinghua University and Shenzhen X-Institute,
-        I am engaged in advanced robotic gripper research focusing on <strong>underactuated mechanisms</strong> and <strong>novel linkage-based</strong>
-        designs for constrained-space manipulation. My goal is to develop highly efficient and adaptive robotic systems for complex real-world tasks.`,
+      pAbout: `I am an undergraduate in Data Science and Big Data Technology at <a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">Shenzhen Technology University</a>.
+        Concurrently, as a student in the Tsien Excellence Engineering Program (TEEP) conducted via
+        <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">Shenzhen X-Institute</a>,
+        I am engaged in robotic gripper research focusing on <strong>underactuated mechanisms</strong> and <strong>linkage-based designs</strong>
+        for constrained-space manipulation. My goal is to develop efficient and adaptive robotic systems for real-world tasks.`,
+
       h2Education: "Education",
       ulEducation: `
-        <li><strong>Shenzhen Technology University</strong> — B.Sc. in Data Science and Big Data Technology (2023–2027)</li>
-        <li><strong>Tsinghua University · Shenzhen X-Institute</strong> — TEEP Joint Program (2024–Present)</li>
+        <li><strong>Shenzhen Technology University</strong> — B.Sc. in Data Science and Big Data Technology (2023–2027) [<a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">Official</a>]</li>
+        <li><strong>Tsinghua University – Shenzhen X-Institute</strong> — Tsien Excellence Engineering Program (TEEP) (2024–Present) [<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">Official</a>]</li>
       `,
+
       h2Publications: "Publications",
       ulPublications: `
         <li>
           Qu S., Zhang W.
           <em>Gamma Gripper: An Underactuated Environment-Adaptive Robotic Gripper Based on Scott-Russell Mechanism for Thin Object Manipulation</em>.
           ICCAS 2025. (Accepted)
-          [<a href="papers/ICCAS2025_Gamma_Qu.pdf" target="_blank">
-            <i class="fas fa-file-pdf"></i> PDF
-          </a>]
-          [<a href="https://www.bilibili.com/video/BV14RggzQEkM/" target="_blank">
-            <i class="fas fa-video"></i> Video
-          </a>]
+          [<a href="papers/ICCAS2025_Gamma_Qu.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>]
+          [<a href="https://www.bilibili.com/video/BV14RggzQEkM/" target="_blank" rel="noopener"><i class="fas fa-video"></i> Video</a>]
         </li>
-        <li>Qu S., Zhang W., Zhang C. <em>Adaptive Grasp with Scott-Russell Linkages...</em> ROBIO 2025. (Accepted) [<a href="#">PDF</a>] [<a href="#">Project</a>]</li>
-        <li>Qu S., Zhang W. <em>Gamma-X Gripper...</em> ICIA 2025. (Accepted) [<a href="#">PDF</a>] [<a href="#">Project</a>]</li>
+
+        <li>
+          Qu S., Zhang W., Zhang C.
+          <em>Adaptive Grasp with Scott-Russell Linkages...</em>
+          ROBIO 2025. (Accepted)
+          [<span class="disabled-link"><i class="fas fa-file-pdf"></i> PDF (TBD)</span>]
+          [<span class="disabled-link"><i class="fas fa-link"></i> Project (TBD)</span>]
+        </li>
+
+        <li>
+          Qu S., Zhang W.
+          <em>Gamma-X Gripper...</em>
+          ICIA 2025. (Accepted)
+          [<span class="disabled-link"><i class="fas fa-file-pdf"></i> PDF (TBD)</span>]
+          [<span class="disabled-link"><i class="fas fa-link"></i> Project (TBD)</span>]
+        </li>
+
         <li>
           Qu S., Zhang W., Zhang C.
           <em>TPL-Lambda Tendon Gripper: A Tendon-Driven Gripper with Pinching and Lifting Capability Based on Scott Mechanism</em>.
           RAAI 2025. (Accepted)
-          [<a href="papers/RAAI2025_TPL_Lambda_Qu.pdf" target="_blank">
-            <i class="fas fa-file-pdf"></i> PDF
-          </a>]
-          [<a href="https://www.bilibili.com/video/BV1rAFCzgEEN/" target="_blank">
-            <i class="fas fa-video"></i> Video
-          </a>]
+          [<a href="papers/RAAI2025_TPL_Lambda_Qu.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>]
+          [<a href="https://www.bilibili.com/video/BV1rAFCzgEEN/" target="_blank" rel="noopener"><i class="fas fa-video"></i> Video</a>]
         </li>
-
       `,
+
       h2Research: "Research & Projects",
       ulResearch: `
         <li><strong>Underactuated Robotic Gripper Research (Gamma, TPL Series)</strong><br>
@@ -253,14 +380,29 @@ document.addEventListener('DOMContentLoaded', () => {
         <li><strong>Multi-Agent Node Cluster Optimization</strong><br>
         RL-based optimization of WAN routing and topology robustness.</li>
       `,
+
       h2Awards: "Honors & Awards",
-      ulAwards: `<li>ASME Student Mechanism & Robot Design Competition — <strong>Gold Medal</strong>, First Place Internationally (2025)</li>`,
+      awardAsme: `ASME Student Mechanism & Robot Design Competition — <strong>Gold Medal</strong>, First Place Internationally (2025)
+        [<a href="https://sites.google.com/site/asmemrc/design-competition-showcase" target="_blank" rel="noopener">Competition</a>]
+        [<a href="https://sites.google.com/site/asmemrc/design-competition-showcase/2025-finalists" target="_blank" rel="noopener">Finalists</a>]`,
+
       h2Skills: "Skills",
       ulSkills: `
         <li>Python, C/C++, MATLAB</li>
         <li>SolidWorks, Arduino, Linux, VS Code, Docker</li>
         <li>Chinese (Native), English (Fluent), Japanese (Proficient)</li>
       `,
+
+      h2Outreach: "Public Outreach",
+      ulOutreach: `
+        <li>
+          Research communication on
+          <a href="https://www.xiaohongshu.com/user/profile/651e09550000000024017d81?xsec_token=AB3KO9O-SieanLzGw5D8dD6aL2Kb6tTWjnLiq1oOdbY9s%3D&xsec_source=pc_search" target="_blank" rel="noopener">
+            Xiaohongshu
+          </a>.
+        </li>
+      `,
+
       footerCopyright: "&copy; 2025 Shijie Qu. Last updated: November 2025."
     },
 
@@ -274,62 +416,99 @@ document.addEventListener('DOMContentLoaded', () => {
       navAwards: "荣誉奖项",
       navSkills: "技能",
       navCV: "简历",
-      subInfo: "深圳技术大学 · 人工智能学院<br>清华大学 · 钱学森力学班联合培养项目 (TEEP)",
+
+      timelineTitle: "发展路程",
+      timelineHint: "点击展开",
+      timelineList: `
+        <li><span class="year">2023</span>进入深圳技术大学（数据科学与大数据技术）。</li>
+        <li><span class="year">2024</span>加入清华大学 × 深圳零一学院（TEEP）联合培养项目。</li>
+        <li><span class="year">2025</span>论文接收：ICCAS 2025、ROBIO 2025、ICIA 2025、RAAI 2025。</li>
+        <li><span class="year">2025</span>ASME 学生机构与机器人设计竞赛：金奖（国际第一）。</li>
+      `,
+
+      subInfo: `深圳技术大学 · 人工智能学院（<a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">学校官网</a>）<br>
+               清华大学 × 深圳零一学院（钱学森力学班 TEEP）（<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">官网介绍</a>）`,
       location: "中国，深圳",
       iconCV: "简历",
+      iconScholar: "Scholar（待补）",
+      iconOrcid: "ORCID（待补）",
+
       h2About: "个人简介",
-      pAbout: `我是深圳技术大学数据科学与大数据技术专业的本科生。
-        同时，作为清华大学与深圳X-研究院联合培养的钱学森力学班（TEEP）学生，
-        我专注于先进机械手抓取技术的研究，重点是<strong>欠驱动机构</strong>和基于<strong>新型连杆机构</strong>的
-        设计，用于受限空间操作。我的目标是为复杂的实际任务开发高效、自适应的机器人系统。`,
+      pAbout: `我是<a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">深圳技术大学</a>数据科学与大数据技术专业的本科生。
+        同时，作为通过<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">深圳零一学院</a>开展的钱学森力学班（TEEP）联合培养学生，
+        我专注于机械手抓取技术研究，重点是<strong>欠驱动机构</strong>与<strong>连杆机构设计</strong>，面向受限空间的轻薄物体操控与环境约束抓取。`,
+
       h2Education: "教育背景",
       ulEducation: `
-        <li><strong>深圳技术大学</strong> — 数据科学与大数据技术学士 (2023–2027)</li>
-        <li><strong>清华大学 · 深圳X-研究院</strong> — TEEP联合培养项目 (2024–至今)</li>
+        <li><strong>深圳技术大学</strong> — 数据科学与大数据技术学士 (2023–2027) [<a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">学校官网</a>]</li>
+        <li><strong>清华大学 × 深圳零一学院</strong> — 钱学森力学班（TEEP）联合培养 (2024–至今) [<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">官网介绍</a>]</li>
       `,
+
       h2Publications: "代表性成果",
       ulPublications: `
         <li>
           Qu S., Zhang W.
           <em>Gamma Gripper: An Underactuated Environment-Adaptive Robotic Gripper Based on Scott-Russell Mechanism for Thin Object Manipulation</em>.
-          ICCAS 2025. (Accepted)
-          [<a href="papers/ICCAS2025_Gamma_Qu.pdf" target="_blank">
-            <i class="fas fa-file-pdf"></i> PDF
-          </a>]
-          [<a href="https://www.bilibili.com/video/BV14RggzQEkM/" target="_blank">
-            <i class="fas fa-video"></i> Video
-          </a>]
+          ICCAS 2025.（已接收）
+          [<a href="papers/ICCAS2025_Gamma_Qu.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>]
+          [<a href="https://www.bilibili.com/video/BV14RggzQEkM/" target="_blank" rel="noopener"><i class="fas fa-video"></i> Video</a>]
         </li>
-        <li>Qu S., Zhang W., Zhang C. <em>Adaptive Grasp with Scott-Russell Linkages...</em> ROBIO 2025. (已接收) [<a href="#">PDF</a>] [<a href="#">项目页</a>]</li>
-        <li>Qu S., Zhang W. <em>Gamma-X Gripper...</em> ICIA 2025. (已接收) [<a href="#">PDF</a>] [<a href="#">项目页</a>]</li>
+
+        <li>
+          Qu S., Zhang W., Zhang C.
+          <em>Adaptive Grasp with Scott-Russell Linkages...</em>
+          ROBIO 2025.（已接收）
+          [<span class="disabled-link"><i class="fas fa-file-pdf"></i> PDF（待补）</span>]
+          [<span class="disabled-link"><i class="fas fa-link"></i> 项目页（待补）</span>]
+        </li>
+
+        <li>
+          Qu S., Zhang W.
+          <em>Gamma-X Gripper...</em>
+          ICIA 2025.（已接收）
+          [<span class="disabled-link"><i class="fas fa-file-pdf"></i> PDF（待补）</span>]
+          [<span class="disabled-link"><i class="fas fa-link"></i> 项目页（待补）</span>]
+        </li>
+
         <li>
           Qu S., Zhang W., Zhang C.
           <em>TPL-Lambda Tendon Gripper: A Tendon-Driven Gripper with Pinching and Lifting Capability Based on Scott Mechanism</em>.
-          RAAI 2025. (Accepted)
-          [<a href="papers/RAAI2025_TPL_Lambda_Qu.pdf" target="_blank">
-            <i class="fas fa-file-pdf"></i> PDF
-          </a>]
-          [<a href="https://www.bilibili.com/video/BV1rAFCzgEEN/" target="_blank">
-            <i class="fas fa-video"></i> Video
-          </a>]
+          RAAI 2025.（已接收）
+          [<a href="papers/RAAI2025_TPL_Lambda_Qu.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>]
+          [<a href="https://www.bilibili.com/video/BV1rAFCzgEEN/" target="_blank" rel="noopener"><i class="fas fa-video"></i> Video</a>]
         </li>
-
-        
       `,
+
       h2Research: "研究与项目",
       ulResearch: `
-        <li><strong>欠驱动机械手抓取研究 (Gamma, TPL 系列)</strong><br>
-        针对薄物体抓取、受限空间操作、铲取、捏合和包络动作进行设计。</li>
+        <li><strong>欠驱动机械手抓取研究（Gamma / TPL 系列）</strong><br>
+        面向轻薄物体抓取、受限空间操作、铲取、捏合与包络动作的机构设计与验证。</li>
         <li><strong>多智能体节点集群优化</strong><br>
-        基于强化学习 (RL) 对广域网 (WAN) 路由效率和拓扑鲁棒性进行优化。</li>
+        基于强化学习（RL）对广域网（WAN）路由效率与拓扑鲁棒性进行优化。</li>
       `,
+
       h2Awards: "荣誉与奖项",
-      ulAwards: `<li>ASME 学生机构与机器人设计竞赛 — <strong>金奖</strong>，国际第一名 (2025)</li>`,
+      awardAsme: `ASME 学生机构与机器人设计竞赛 — <strong>金奖</strong>（国际第一，2025）
+        [<a href="https://sites.google.com/site/asmemrc/design-competition-showcase" target="_blank" rel="noopener">竞赛官网</a>]
+        [<a href="https://sites.google.com/site/asmemrc/design-competition-showcase/2025-finalists" target="_blank" rel="noopener">2025 Finalists</a>]`,
+
       h2Skills: "掌握技能",
       ulSkills: `
         <li>Python, C/C++, MATLAB</li>
         <li>SolidWorks, Arduino, Linux, VS Code, Docker</li>
+        <li>中文（母语），英语（熟练），日语（熟练）</li>
       `,
+
+      h2Outreach: "公众传播",
+      ulOutreach: `
+        <li>
+          研究内容与技术分享：
+          <a href="https://www.xiaohongshu.com/user/profile/651e09550000000024017d81?xsec_token=AB3KO9O-SieanLzGw5D8dD6aL2Kb6tTWjnLiq1oOdbY9s%3D&xsec_source=pc_search" target="_blank" rel="noopener">
+            小红书
+          </a>。
+        </li>
+      `,
+
       footerCopyright: "&copy; 2025 屈士杰. 最近更新：2025年11月。"
     }
   };
