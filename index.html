@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-lang-key="pageTitle">Shijie Qu | Academic Homepage</title>
-  
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMD/CD65fNJ00yY6XyK4yV0T2Xp2l2t4P4yFpBqM1A0K5+L62y4n3u5w0h6f5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0KKVWD84HW"></script>
@@ -14,6 +14,7 @@
     gtag('js', new Date());
     gtag('config', 'G-0KKVWD84HW');
   </script>
+
   <style>
     body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafafa; color: #222; line-height: 1.7; }
     header { width: 100%; padding: 20px 40px; background: #fff; border-bottom: 1px solid #e5e5e5; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; }
@@ -23,9 +24,37 @@
     nav a:hover { color: #0070f3; }
     a { color: #0070f3; text-decoration: none; border-bottom: 1px dotted rgba(0, 112, 243, 0.5); transition: color 0.2s, border-bottom 0.2s; }
     a:hover { color: #0056b3; border-bottom: 1px solid #0056b3; }
+
     .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
     .profile { display: flex; gap: 30px; align-items: center; }
-    .avatar-placeholder { width: 160px; height: 160px; background: #ddd; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #777; font-size: 14px; }
+
+    /* Avatar hover swap */
+    .avatar-swap {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      flex: 0 0 160px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .avatar-swap img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 180ms ease, transform 220ms ease;
+      will-change: opacity, transform;
+    }
+    .avatar-swap img.base { opacity: 1; transform: scale(1); }
+    .avatar-swap img.hover { opacity: 0; transform: scale(1.03); }
+    .avatar-swap:hover img.base { opacity: 0; transform: scale(0.99); }
+    .avatar-swap:hover img.hover { opacity: 1; transform: scale(1); }
+    @media (prefers-reduced-motion: reduce) {
+      .avatar-swap img { transition: none; }
+    }
+
     h1 { margin: 0; font-size: 32px; font-weight: 600; }
     h2 { margin-top: 40px; font-size: 22px; font-weight: 600; border-bottom: 2px solid #ddd; padding-bottom: 6px; }
     .subinfo { margin: 6px 0 15px 0; color: #555; font-size: 15px; }
@@ -34,11 +63,18 @@
     .icons i { margin-right: 5px; }
     ul { padding-left: 20px; }
     footer { width: 100%; margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px; padding-bottom: 20px; font-size: 14px; color: #777; text-align: center; }
-    @media(max-width: 700px) { .profile { flex-direction: column; text-align: center; } header { padding: 15px 20px; } nav a { margin-left: 10px; font-size: 14px; } nav { display: flex; align-items: center; } }
+
+    @media(max-width: 700px) {
+      .profile { flex-direction: column; text-align: center; }
+      header { padding: 15px 20px; }
+      nav a { margin-left: 10px; font-size: 14px; }
+      nav { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+      .avatar-swap { margin-bottom: 10px; }
+    }
   </style>
 </head>
-<body>
 
+<body>
 <header>
   <div>
     <strong data-lang-key="headerName">Shijie Qu</strong>
@@ -50,22 +86,26 @@
     <a href="#research" data-lang-key="navResearch">Research</a>
     <a href="#awards" data-lang-key="navAwards">Awards</a>
     <a href="#skills" data-lang-key="navSkills">Skills</a>
-    <a href="CV.pdf" data-lang-key="navCV">CV</a>
+    <a href="CV.pdf" target="_blank" data-lang-key="navCV">CV</a>
     <button id="lang-toggle" aria-label="Toggle language">中文 / EN</button>
   </nav>
 </header>
 
 <div class="container">
-
   <div class="profile">
-    <div class="avatar-placeholder" data-lang-key="photoPlaceholder">Your Photo Here</div>
+    <!-- Replace placeholder with hover-swapping avatar -->
+    <div class="avatar-swap" aria-label="Profile photo">
+      <img class="base" src="images/avatar.png" alt="Shijie Qu portrait">
+      <img class="hover" src="images/avatar hover.png" alt="Shijie Qu portrait alternate">
+    </div>
+
     <div>
       <h1>Shijie Qu（屈士杰）</h1>
       <div class="subinfo" data-lang-key="subInfo">Shenzhen Technology University · School of Artificial Intelligence<br>Tsinghua University · Tsien Excellence Engineering Program (TEEP)</div>
 
       <div class="icons">
         <i class="fas fa-map-marker-alt"></i> <span data-lang-key="location">Shenzhen, China</span>
-        · <a href="CV.pdf"><i class="fas fa-file-pdf"></i><span data-lang-key="iconCV">Résumé</span></a>
+        · <a href="CV.pdf" target="_blank"><i class="fas fa-file-pdf"></i><span data-lang-key="iconCV">Résumé</span></a>
         · <a href="#"><i class="fas fa-graduation-cap"></i>Scholar</a>
         · <a href="#"><i class="fab fa-orcid"></i>ORCID</a>
         · <a href="mailto:qushijie644@gmail.com"><i class="fas fa-envelope"></i>Email</a>
@@ -78,7 +118,7 @@
   <p data-lang-key="pAbout">
     I am an undergraduate in Data Science and Big Data Technology at Shenzhen Technology University.
     Concurrently, as a student in the joint TEEP program between Tsinghua University and Shenzhen X-Institute,
-    I am engaged in advanced robotic gripper research focusing on **underactuated mechanisms** and **novel linkage-based**
+    I am engaged in advanced robotic gripper research focusing on <strong>underactuated mechanisms</strong> and <strong>novel linkage-based</strong>
     designs for constrained-space manipulation. My goal is to develop highly efficient and adaptive robotic systems for complex real-world tasks.
   </p>
 
@@ -120,7 +160,6 @@
     <li>SolidWorks, Arduino, Linux, VS Code, Docker</li>
     <li>Chinese (Native), English (Fluent), Japanese (Proficient)</li>
   </ul>
-
 </div>
 
 <footer>
@@ -143,14 +182,13 @@ document.addEventListener('DOMContentLoaded', () => {
       navAwards: "Awards",
       navSkills: "Skills",
       navCV: "CV",
-      photoPlaceholder: "Your Photo Here",
       subInfo: "Shenzhen Technology University · School of Artificial Intelligence<br>Tsinghua University · Tsien Excellence Engineering Program (TEEP)",
       location: "Shenzhen, China",
       iconCV: "Résumé",
       h2About: "About Me",
       pAbout: `I am an undergraduate in Data Science and Big Data Technology at Shenzhen Technology University.
         Concurrently, as a student in the joint TEEP program between Tsinghua University and Shenzhen X-Institute,
-        I am engaged in advanced robotic gripper research focusing on **underactuated mechanisms** and **novel linkage-based**
+        I am engaged in advanced robotic gripper research focusing on <strong>underactuated mechanisms</strong> and <strong>novel linkage-based</strong>
         designs for constrained-space manipulation. My goal is to develop highly efficient and adaptive robotic systems for complex real-world tasks.`,
       h2Education: "Education",
       ulEducation: `
@@ -182,6 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `,
       footerCopyright: "&copy; 2025 Shijie Qu. Last updated: November 2025."
     },
+
     zh: {
       pageTitle: "屈士杰 | 学术主页",
       headerName: "屈士杰",
@@ -192,14 +231,13 @@ document.addEventListener('DOMContentLoaded', () => {
       navAwards: "荣誉奖项",
       navSkills: "技能",
       navCV: "简历",
-      photoPlaceholder: "在此放置您的照片",
       subInfo: "深圳技术大学 · 人工智能学院<br>清华大学 · 钱学森力学班联合培养项目 (TEEP)",
       location: "中国，深圳",
       iconCV: "简历",
       h2About: "个人简介",
       pAbout: `我是深圳技术大学数据科学与大数据技术专业的本科生。
         同时，作为清华大学与深圳X-研究院联合培养的钱学森力学班（TEEP）学生，
-        我专注于先进机械手抓取技术的研究，重点是**欠驱动机构**和基于**新型连杆机构**的
+        我专注于先进机械手抓取技术的研究，重点是<strong>欠驱动机构</strong>和基于<strong>新型连杆机构</strong>的
         设计，用于受限空间操作。我的目标是为复杂的实际任务开发高效、自适应的机器人系统。`,
       h2Education: "教育背景",
       ulEducation: `
@@ -227,3 +265,37 @@ document.addEventListener('DOMContentLoaded', () => {
       ulSkills: `
         <li>Python, C/C++, MATLAB</li>
         <li>SolidWorks, Arduino, Linux, VS Code, Docker</li>
+      `,
+      footerCopyright: "&copy; 2025 屈士杰. 最近更新：2025年11月。"
+    }
+  };
+
+  const langToggleBtn = document.getElementById('lang-toggle');
+
+  function setLanguage(lang) {
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.querySelectorAll('[data-lang-key]').forEach(el => {
+      const key = el.getAttribute('data-lang-key');
+      if (translations[lang] && translations[lang][key] !== undefined) {
+        if (el.tagName.toLowerCase() === 'title') {
+          document.title = translations[lang][key].replace(/<br\s*\/?>/g, ' ');
+        } else {
+          el.innerHTML = translations[lang][key];
+        }
+      }
+    });
+    localStorage.setItem('lang', lang);
+  }
+
+  const savedLang = localStorage.getItem('lang') || 'en';
+  setLanguage(savedLang);
+
+  langToggleBtn.addEventListener('click', () => {
+    const current = document.documentElement.lang.startsWith('zh') ? 'zh' : 'en';
+    setLanguage(current === 'en' ? 'zh' : 'en');
+  });
+
+});
+</script>
+</body>
+</html>
