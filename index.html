@@ -1,544 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-lang-key="pageTitle">Shijie Qu | Academic Homepage</title>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMD/CD65fNJ00yY6XyK4yV0T2Xp2l2t4P4yFpBqM1A0K5+L62y4n3u5w0h6f5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0KKVWD84HW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-0KKVWD84HW');
-  </script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shijie Qu | Academic Homepage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <style>
-    body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafafa; color: #222; line-height: 1.7; }
-    header { width: 100%; padding: 20px 40px; background: #fff; border-bottom: 1px solid #e5e5e5; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; }
-    #lang-toggle { cursor: pointer; padding: 5px 10px; border: 1px solid #ddd; border-radius: 4px; background: #f7f7f7; font-size: 14px; transition: background 0.2s; margin-left: 20px; }
-    #lang-toggle:hover { background: #eee; }
-    nav a { margin-left: 20px; text-decoration: none; color: #333; font-size: 15px; transition: color 0.2s ease; }
-    nav a:hover { color: #0070f3; }
-    a { color: #0070f3; text-decoration: none; border-bottom: 1px dotted rgba(0, 112, 243, 0.5); transition: color 0.2s, border-bottom 0.2s; }
-    a:hover { color: #0056b3; border-bottom: 1px solid #0056b3; }
-
-    .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-    .profile { display: flex; gap: 30px; align-items: center; }
-
-    /* Avatar hover swap */
-    .avatar-swap {
-      height: 160px;
-      border-radius: 12px;
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      position: relative;
-      flex: 0 0 160px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      background: #fff;
-      border: 1px solid #e8e8e8;
-    }
-    .avatar-swap img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      transition: opacity 180ms ease, transform 220ms ease;
-      will-change: opacity, transform;
-    }
-    .avatar-swap img.base { opacity: 1; transform: scale(1); }
-    .avatar-swap img.hover { opacity: 0; transform: scale(1.03); }
-    .avatar-swap:hover img.base { opacity: 0; transform: scale(0.99); }
-    .avatar-swap:hover img.hover { opacity: 1; transform: scale(1); }
-    @media (prefers-reduced-motion: reduce) {
-      .avatar-swap img { transition: none; }
-    }
-
-    h1 { margin: 0; font-size: 32px; font-weight: 600; }
-    h2 { margin-top: 40px; font-size: 22px; font-weight: 600; border-bottom: 2px solid #ddd; padding-bottom: 6px; }
-    .subinfo { margin: 6px 0 15px 0; color: #555; font-size: 15px; }
-    .icons { color: #444; font-size: 14px; }
-    .icons a { margin-right: 14px; text-decoration: none; font-size: 14px; color: #444; border: none; }
-    .icons a:hover { color: #000; }
-    .icons i { margin-right: 5px; }
-
-    .disabled-link {
-      color: #888;
-      border: none;
-      cursor: not-allowed;
-      text-decoration: none;
-    }
-    .disabled-link:hover { color: #888; border: none; }
-
+    body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif; background: #f8f8f6; color: #222; line-height: 1.7; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.96); border-bottom: 1px solid #e4e1dc; }
+    .bar { max-width: 980px; margin: 0 auto; padding: 16px 22px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    nav { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+    nav a, .links a { color: #2d2d2d; text-decoration: none; border-bottom: 1px dotted #aaa; }
+    nav a:hover, .links a:hover { color: #005ca8; border-bottom-color: #005ca8; }
+    button { border: 1px solid #d6d2ca; background: #fff; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+    main { max-width: 980px; margin: 0 auto; padding: 34px 22px 60px; }
+    .profile { display: grid; grid-template-columns: 168px 1fr; gap: 30px; align-items: center; margin: 16px 0 34px; }
+    .avatar { width: 168px; height: 168px; border-radius: 10px; object-fit: cover; background: #fff; border: 1px solid #e4e1dc; }
+    h1 { margin: 0; font-size: 36px; line-height: 1.2; }
+    h2 { margin: 38px 0 14px; padding-bottom: 6px; border-bottom: 1px solid #d8d5cf; font-size: 22px; }
     ul { padding-left: 20px; }
-    footer { width: 100%; margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px; padding-bottom: 20px; font-size: 14px; color: #777; text-align: center; }
-
-    /* --- Timeline dropdown --- */
-    .timeline {
-      margin: 0 0 22px 0;
-      background: #fff;
-      border: 1px solid #e8e8e8;
-      border-radius: 10px;
-      padding: 10px 14px;
-    }
-    .timeline summary {
-      list-style: none;
-      cursor: pointer;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      user-select: none;
-      gap: 12px;
-    }
-    .timeline summary::-webkit-details-marker { display: none; }
-
-    .timeline .hint {
-      font-weight: 400;
-      color: #666;
-      font-size: 13px;
-      margin-left: auto;
-    }
-
-    .timeline .chev {
-      width: 26px;
-      height: 26px;
-      border-radius: 7px;
-      border: 1px solid #e6e6e6;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 160ms ease, background 160ms ease;
-      background: #fafafa;
-      flex: 0 0 auto;
-    }
-    .timeline[open] .chev { transform: rotate(180deg); background: #f3f3f3; }
-
-    .timeline ul {
-      margin: 12px 0 0 0;
-      padding-left: 18px;
-    }
-    .timeline li { margin: 8px 0; }
-    .timeline .year { font-weight: 700; margin-right: 6px; }
-
-    @media(max-width: 700px) {
-      .profile { flex-direction: column; text-align: center; }
-      header { padding: 15px 20px; }
-      nav a { margin-left: 10px; font-size: 14px; }
-      nav { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
-      .avatar-swap { margin-bottom: 10px; }
-      .timeline summary { gap: 10px; }
-      .timeline .hint { display: none; }
+    li { margin: 8px 0; }
+    .subinfo { color: #555; margin: 8px 0 12px; }
+    .links { display: flex; gap: 14px; flex-wrap: wrap; font-size: 14px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .item { background: #fff; border: 1px solid #e5e2dc; border-radius: 8px; padding: 16px 18px; }
+    .item strong { display: block; margin-bottom: 4px; }
+    footer { border-top: 1px solid #e4e1dc; color: #777; text-align: center; padding: 24px; font-size: 14px; }
+    @media (max-width: 760px) {
+      .bar { display: block; }
+      nav { margin-top: 10px; justify-content: flex-start; }
+      .profile, .grid { grid-template-columns: 1fr; }
+      .avatar { width: 150px; height: 150px; }
+      h1 { font-size: 30px; }
     }
   </style>
 </head>
-
 <body>
 <header>
-  <div>
-    <strong data-lang-key="headerName">Shijie Qu</strong>
+  <div class="bar">
+    <strong data-i18n="name">Shijie Qu</strong>
+    <nav>
+      <a href="#about" data-i18n="navAbout">About</a>
+      <a href="#publications" data-i18n="navPublications">Publications</a>
+      <a href="#projects" data-i18n="navProjects">Projects</a>
+      <a href="#awards" data-i18n="navAwards">Awards</a>
+      <a href="#skills" data-i18n="navSkills">Skills</a>
+      <a id="cv-link" href="cv_en.html" data-i18n="navCV">CV</a>
+      <button id="lang-toggle" type="button">中文 / EN</button>
+    </nav>
   </div>
-  <nav>
-    <a href="#about" data-lang-key="navAbout">About</a>
-    <a href="#education" data-lang-key="navEducation">Education</a>
-    <a href="#publications" data-lang-key="navPublications">Publications</a>
-    <a href="#research" data-lang-key="navResearch">Research</a>
-    <a href="#awards" data-lang-key="navAwards">Awards</a>
-    <a href="#skills" data-lang-key="navSkills">Skills</a>
-    <a href="CV.pdf" target="_blank" rel="noopener" data-lang-key="navCV">CV</a>
-    <button id="lang-toggle" aria-label="Toggle language">中文 / EN</button>
-  </nav>
 </header>
 
-<div class="container">
-
-  <!-- Development timeline dropdown -->
-  <details class="timeline" id="timeline">
-    <summary>
-      <span data-lang-key="timelineTitle">Development Timeline</span>
-      <span class="hint" data-lang-key="timelineHint">Click to expand</span>
-      <span class="chev" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
-    </summary>
-    <ul data-lang-key="timelineList">
-      <li><span class="year">2023</span>Entered Shenzhen Technology University (Data Science & Big Data Technology).</li>
-      <li><span class="year">2024</span>Joined the Tsinghua–Shenzhen X-Institute Tsien Excellence Engineering Program (TEEP).</li>
-      <li><span class="year">2025</span>Accepted papers: ICCAS 2025, ROBIO 2025, ICIA 2025, RAAI 2025.</li>
-      <li><span class="year">2025</span>ASME Student Mechanism & Robot Design Competition — Gold Medal (1st Place).</li>
-    </ul>
-  </details>
-
-  <div class="profile">
-    <div class="avatar-swap" aria-label="Profile photo">
-      <img class="base" src="images/avatar.png" alt="Shijie Qu portrait">
-      <!-- Strongly recommended: rename file to "avatar_hover.png" and update the src accordingly -->
-      <img class="hover" src="images/avatar hover.png" alt="Shijie Qu portrait alternate">
-    </div>
-
+<main>
+  <section class="profile">
+    <img class="avatar" src="images/avatar.png" alt="Shijie Qu portrait">
     <div>
-      <h1>Shijie Qu（屈士杰）</h1>
-
-      <div class="subinfo" data-lang-key="subInfo">
-        Shenzhen Technology University · School of Artificial Intelligence (<a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">official</a>)<br>
-        Tsinghua University – Shenzhen X-Institute (TEEP) (<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">official</a>)
-      </div>
-
-      <div class="icons">
-        <i class="fas fa-map-marker-alt"></i> <span data-lang-key="location">Shenzhen, China</span>
-        · <a href="CV.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i><span data-lang-key="iconCV">Résumé</span></a>
-        · <span class="disabled-link"><i class="fas fa-graduation-cap"></i><span data-lang-key="iconScholar">Scholar (TBD)</span></span>
-        · <span class="disabled-link"><i class="fab fa-orcid"></i><span data-lang-key="iconOrcid">ORCID (TBD)</span></span>
-        · <a href="mailto:qushijie644@gmail.com"><i class="fas fa-envelope"></i>Email</a>
-        · <a href="https://github.com/12345qqqde" target="_blank" rel="noopener"><i class="fab fa-github"></i>GitHub</a>
+      <h1>Shijie Qu <span lang="zh-CN">屈士杰</span></h1>
+      <p class="subinfo" data-i18n="subinfo">Undergraduate researcher in robotics at Shenzhen Technology University and Shenzhen X-Institute / TEEP.</p>
+      <div class="links">
+        <a href="mailto:qushijie644@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://github.com/12345qqqde"><i class="fab fa-github"></i> GitHub</a>
+        <a href="cv_en.html" id="cv-link-inline"><i class="fas fa-file-lines"></i> <span data-i18n="cvText">CV</span></a>
+        <a href="cv_zh.html">中文简历</a>
       </div>
     </div>
-  </div>
+  </section>
 
-  <h2 id="about" data-lang-key="h2About">About Me</h2>
-  <p data-lang-key="pAbout">
-    I am an undergraduate in Data Science and Big Data Technology at <a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">Shenzhen Technology University</a>.
-    Concurrently, as a student in the Tsien Excellence Engineering Program (TEEP) conducted via
-    <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">Shenzhen X-Institute</a>,
-    I am engaged in robotic gripper research focusing on <strong>underactuated mechanisms</strong> and <strong>linkage-based designs</strong>
-    for constrained-space manipulation. My goal is to develop efficient and adaptive robotic systems for real-world tasks.
-  </p>
+  <section id="about">
+    <h2 data-i18n="aboutTitle">About</h2>
+    <p data-i18n="aboutText">I work on embodied robotic manipulation, with a focus on underactuated grippers, lightweight mechanisms, visuotactile sensing, and physically verifiable prototypes. My recent work includes Gamma grippers for thin-object scooping and adaptive grasping, TPL / LTO grippers for constrained-space industrial manipulation, and a GelSight-based dexterous-hand validation platform.</p>
+  </section>
 
-  <h2 id="education" data-lang-key="h2Education">Education</h2>
-  <ul data-lang-key="ulEducation">
-    <li><strong>Shenzhen Technology University</strong> — B.Sc. in Data Science and Big Data Technology (2023–2027) [<a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">Official</a>]</li>
-    <li><strong>Tsinghua University – Shenzhen X-Institute</strong> — Tsien Excellence Engineering Program (TEEP) (2024–Present) [<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">Official</a>]</li>
-  </ul>
+  <section id="publications">
+    <h2 data-i18n="pubTitle">Publications</h2>
+    <ul>
+      <li>Qu S., Zhang W. <em>A Novel Robot Gripper with Scott Linkage for Scooping and Self-Adaptive Grasp</em>. ICCAS 2025. DOI: 10.23919/ICCAS66577.2025.11301297 [<a href="papers/ICCAS2025_Gamma_Qu.pdf">PDF</a>]</li>
+      <li>Qu S., Zhang W., Zhang C. <em>The TPL-Lambda Gripper: A Tendon-Driven Manipulator for Combined Pinching and Lifting Based on the Scott Linkage</em>. RAAI 2025. DOI: 10.1109/RAAI67517.2025.11423389 [<a href="papers/RAAI2025_TPL_Lambda_Qu.pdf">PDF</a>]</li>
+      <li>Qu S., Zhang W., Zhang C. <em>A Novel Underactuated Robot Gripper With Scott-Russell Linkages for Adaptive Grasp in Environmental Constraints</em>. ROBIO 2025. DOI: 10.1109/ROBIO66223.2025.11377469 [<a href="papers/ROBIO2025_GammaE_Qu.pdf">PDF</a>]</li>
+      <li>Qu S., Zhang W. <em>A Novel Robot Gripper with Scott Linkage for Scooping and Self-Adaptive Grasp in Environmental Constraints</em>. ICIA 2025. DOI: 10.1109/ICIA64617.2025.11277636 [<a href="papers/ICIA2025_GammaX_Qu.pdf">PDF</a>]</li>
+    </ul>
+  </section>
 
-  <h2 id="publications" data-lang-key="h2Publications">Publications</h2>
-  <ul data-lang-key="ulPublications">
+  <section id="projects">
+    <h2 data-i18n="projectTitle">Research and Projects</h2>
+    <div class="grid">
+      <div class="item"><strong data-i18n="p1Title">Gamma Series Grippers</strong><span data-i18n="p1Text">Scott-Russell and parallelogram mechanisms for thin-object pinching, scooping, and enveloping. Reported 94% asymmetric aluminum-foil scooping success and 98% daily-object grasping success.</span></div>
+      <div class="item"><strong data-i18n="p2Title">TPL / LTO Constrained-Space Grippers</strong><span data-i18n="p2Text">Tendon-driven grippers for combined pinching and lifting, designed for grooved motors, inserted bolts, and post-grasp extraction in constrained environments.</span></div>
+      <div class="item"><strong data-i18n="p3Title">GelSight Dexterous-Hand Platform</strong><span data-i18n="p3Text">Six-axis-arm-to-single-finger six-DOF validation platform with GelSight-based visuotactile reconstruction and force-control development.</span></div>
+      <div class="item"><strong data-i18n="p4Title">Embodied Dexterous-Hand Project</strong><span data-i18n="p4Text">Provincial undergraduate innovation project on multimodal dexterous-hand design and autonomous operation.</span></div>
+    </div>
+  </section>
 
-    <li>
-      Qu S., Zhang W.
-      <em>Gamma Gripper: An Underactuated Environment-Adaptive Robotic Gripper Based on Scott-Russell Mechanism for Thin Object Manipulation</em>.
-      ICCAS 2025. (Accepted)
-      [<a href="papers/ICCAS2025_Gamma_Qu.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>]
-      [<a href="https://www.bilibili.com/video/BV14RggzQEkM/" target="_blank" rel="noopener"><i class="fas fa-video"></i> Video</a>]
-    </li>
+  <section id="awards">
+    <h2 data-i18n="awardTitle">Honors</h2>
+    <ul>
+      <li data-i18n="awardText">ASME Student Mechanism and Robot Design Competition, Gold Medal, 1st Place Internationally, Team Leader, 2025.</li>
+    </ul>
+  </section>
 
-    <li>
-      Qu S., Zhang W., Zhang C.
-      <em>Adaptive Grasp with Scott-Russell Linkages...</em>
-      ROBIO 2025. (Accepted)
-      [<span class="disabled-link"><i class="fas fa-file-pdf"></i> PDF (TBD)</span>]
-      [<span class="disabled-link"><i class="fas fa-link"></i> Project (TBD)</span>]
-    </li>
+  <section id="skills">
+    <h2 data-i18n="skillTitle">Skills</h2>
+    <p data-i18n="skillText">Python, C/C++, MATLAB, Java; SolidWorks, mechanism design, electronic control, MuJoCo, ROS/RViz, robotic arm design, inverse kinematics; multi-agent reinforcement learning, Ray distributed training, RAG applications, YOLO, DeerFlow, RAGFlow; Linux, Docker, VS Code, Anaconda.</p>
+  </section>
+</main>
 
-    <li>
-      Qu S., Zhang W.
-      <em>Gamma-X Gripper...</em>
-      ICIA 2025. (Accepted)
-      [<span class="disabled-link"><i class="fas fa-file-pdf"></i> PDF (TBD)</span>]
-      [<span class="disabled-link"><i class="fas fa-link"></i> Project (TBD)</span>]
-    </li>
-
-    <li>
-      Qu S., Zhang W., Zhang C.
-      <em>TPL-Lambda Tendon Gripper: A Tendon-Driven Gripper with Pinching and Lifting Capability Based on Scott Mechanism</em>.
-      RAAI 2025. (Accepted)
-      [<a href="papers/RAAI2025_TPL_Lambda_Qu.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>]
-      [<a href="https://www.bilibili.com/video/BV1rAFCzgEEN/" target="_blank" rel="noopener"><i class="fas fa-video"></i> Video</a>]
-    </li>
-
-  </ul>
-
-  <h2 id="research" data-lang-key="h2Research">Research & Projects</h2>
-  <ul data-lang-key="ulResearch">
-    <li>
-      <strong>Underactuated Robotic Gripper Research (Gamma, TPL Series)</strong><br>
-      Designs for thin-object grasping, constrained-space manipulation, scooping, pinching, enveloping actions.
-    </li>
-    <li>
-      <strong>Multi-Agent Node Cluster Optimization</strong><br>
-      RL-based optimization of WAN routing and topology robustness.
-    </li>
-  </ul>
-
-  <h2 id="awards" data-lang-key="h2Awards">Honors & Awards</h2>
-  <ul data-lang-key="ulAwards">
-    <li data-lang-key="awardAsme">
-      ASME Student Mechanism & Robot Design Competition — <strong>Gold Medal</strong>, First Place Internationally (2025)
-      [<a href="https://sites.google.com/site/asmemrc/design-competition-showcase" target="_blank" rel="noopener">Competition</a>]
-      [<a href="https://sites.google.com/site/asmemrc/design-competition-showcase/2025-finalists" target="_blank" rel="noopener">Finalists</a>]
-    </li>
-  </ul>
-
-  <h2 id="skills" data-lang-key="h2Skills">Skills</h2>
-  <ul data-lang-key="ulSkills">
-    <li>Python, C/C++, MATLAB</li>
-    <li>SolidWorks, Arduino, Linux, VS Code, Docker</li>
-    <li>Chinese (Native), English (Fluent), Japanese (Proficient)</li>
-  </ul>
-
-  <h2 id="outreach" data-lang-key="h2Outreach">Public Outreach</h2>
-  <ul data-lang-key="ulOutreach">
-    <li>
-      Research communication on
-      <a href="https://www.xiaohongshu.com/user/profile/651e09550000000024017d81?xsec_token=AB3KO9O-SieanLzGw5D8dD6aL2Kb6tTWjnLiq1oOdbY9s%3D&xsec_source=pc_search" target="_blank" rel="noopener">
-        Xiaohongshu
-      </a>.
-    </li>
-  </ul>
-
-</div>
-
-<footer>
-  <div class="container" style="text-align: center;">
-    <span data-lang-key="footerCopyright">&copy; 2025 Shijie Qu. Last updated: November 2025.</span>
-  </div>
-</footer>
+<footer data-i18n="footer">© 2026 Shijie Qu. Last updated: July 2026.</footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-
-  const translations = {
-    en: {
-      pageTitle: "Shijie Qu | Academic Homepage",
-      headerName: "Shijie Qu",
-      navAbout: "About",
-      navEducation: "Education",
-      navPublications: "Publications",
-      navResearch: "Research",
-      navAwards: "Awards",
-      navSkills: "Skills",
-      navCV: "CV",
-
-      timelineTitle: "Development Timeline",
-      timelineHint: "Click to expand",
-      timelineList: `
-        <li><span class="year">2023</span>Entered Shenzhen Technology University (Data Science & Big Data Technology).</li>
-        <li><span class="year">2024</span>Joined the Tsinghua–Shenzhen X-Institute Tsien Excellence Engineering Program (TEEP).</li>
-        <li><span class="year">2025</span>Accepted papers: ICCAS 2025, ROBIO 2025, ICIA 2025, RAAI 2025.</li>
-        <li><span class="year">2025</span>ASME Student Mechanism & Robot Design Competition — Gold Medal (1st Place).</li>
-      `,
-
-      subInfo: `Shenzhen Technology University · School of Artificial Intelligence (<a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">official</a>)<br>
-               Tsinghua University – Shenzhen X-Institute (TEEP) (<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">official</a>)`,
-      location: "Shenzhen, China",
-      iconCV: "Résumé",
-      iconScholar: "Scholar (TBD)",
-      iconOrcid: "ORCID (TBD)",
-
-      h2About: "About Me",
-      pAbout: `I am an undergraduate in Data Science and Big Data Technology at <a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">Shenzhen Technology University</a>.
-        Concurrently, as a student in the Tsien Excellence Engineering Program (TEEP) conducted via
-        <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">Shenzhen X-Institute</a>,
-        I am engaged in robotic gripper research focusing on <strong>underactuated mechanisms</strong> and <strong>linkage-based designs</strong>
-        for constrained-space manipulation. My goal is to develop efficient and adaptive robotic systems for real-world tasks.`,
-
-      h2Education: "Education",
-      ulEducation: `
-        <li><strong>Shenzhen Technology University</strong> — B.Sc. in Data Science and Big Data Technology (2023–2027) [<a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">Official</a>]</li>
-        <li><strong>Tsinghua University – Shenzhen X-Institute</strong> — Tsien Excellence Engineering Program (TEEP) (2024–Present) [<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">Official</a>]</li>
-      `,
-
-      h2Publications: "Publications",
-      ulPublications: `
-        <li>
-          Qu S., Zhang W.
-          <em>Gamma Gripper: An Underactuated Environment-Adaptive Robotic Gripper Based on Scott-Russell Mechanism for Thin Object Manipulation</em>.
-          ICCAS 2025. (Accepted)
-          [<a href="papers/ICCAS2025_Gamma_Qu.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>]
-          [<a href="https://www.bilibili.com/video/BV14RggzQEkM/" target="_blank" rel="noopener"><i class="fas fa-video"></i> Video</a>]
-        </li>
-
-        <li>
-          Qu S., Zhang W., Zhang C.
-          <em>Adaptive Grasp with Scott-Russell Linkages...</em>
-          ROBIO 2025. (Accepted)
-          [<span class="disabled-link"><i class="fas fa-file-pdf"></i> PDF (TBD)</span>]
-          [<span class="disabled-link"><i class="fas fa-link"></i> Project (TBD)</span>]
-        </li>
-
-        <li>
-          Qu S., Zhang W.
-          <em>Gamma-X Gripper...</em>
-          ICIA 2025. (Accepted)
-          [<span class="disabled-link"><i class="fas fa-file-pdf"></i> PDF (TBD)</span>]
-          [<span class="disabled-link"><i class="fas fa-link"></i> Project (TBD)</span>]
-        </li>
-
-        <li>
-          Qu S., Zhang W., Zhang C.
-          <em>TPL-Lambda Tendon Gripper: A Tendon-Driven Gripper with Pinching and Lifting Capability Based on Scott Mechanism</em>.
-          RAAI 2025. (Accepted)
-          [<a href="papers/RAAI2025_TPL_Lambda_Qu.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>]
-          [<a href="https://www.bilibili.com/video/BV1rAFCzgEEN/" target="_blank" rel="noopener"><i class="fas fa-video"></i> Video</a>]
-        </li>
-      `,
-
-      h2Research: "Research & Projects",
-      ulResearch: `
-        <li><strong>Underactuated Robotic Gripper Research (Gamma, TPL Series)</strong><br>
-        Designs for thin-object grasping, constrained-space manipulation, scooping, pinching, enveloping actions.</li>
-        <li><strong>Multi-Agent Node Cluster Optimization</strong><br>
-        RL-based optimization of WAN routing and topology robustness.</li>
-      `,
-
-      h2Awards: "Honors & Awards",
-      awardAsme: `ASME Student Mechanism & Robot Design Competition — <strong>Gold Medal</strong>, First Place Internationally (2025)
-        [<a href="https://sites.google.com/site/asmemrc/design-competition-showcase" target="_blank" rel="noopener">Competition</a>]
-        [<a href="https://sites.google.com/site/asmemrc/design-competition-showcase/2025-finalists" target="_blank" rel="noopener">Finalists</a>]`,
-
-      h2Skills: "Skills",
-      ulSkills: `
-        <li>Python, C/C++, MATLAB</li>
-        <li>SolidWorks, Arduino, Linux, VS Code, Docker</li>
-        <li>Chinese (Native), English (Fluent), Japanese (Proficient)</li>
-      `,
-
-      h2Outreach: "Public Outreach",
-      ulOutreach: `
-        <li>
-          Research communication on
-          <a href="https://www.xiaohongshu.com/user/profile/651e09550000000024017d81?xsec_token=AB3KO9O-SieanLzGw5D8dD6aL2Kb6tTWjnLiq1oOdbY9s%3D&xsec_source=pc_search" target="_blank" rel="noopener">
-            Xiaohongshu
-          </a>.
-        </li>
-      `,
-
-      footerCopyright: "&copy; 2025 Shijie Qu. Last updated: November 2025."
-    },
-
-    zh: {
-      pageTitle: "屈士杰 | 学术主页",
-      headerName: "屈士杰",
-      navAbout: "简介",
-      navEducation: "教育背景",
-      navPublications: "代表性成果",
-      navResearch: "研究与项目",
-      navAwards: "荣誉奖项",
-      navSkills: "技能",
-      navCV: "简历",
-
-      timelineTitle: "发展路程",
-      timelineHint: "点击展开",
-      timelineList: `
-        <li><span class="year">2023</span>进入深圳技术大学（数据科学与大数据技术）。</li>
-        <li><span class="year">2024</span>加入清华大学 × 深圳零一学院（TEEP）联合培养项目。</li>
-        <li><span class="year">2025</span>论文接收：ICCAS 2025、ROBIO 2025、ICIA 2025、RAAI 2025。</li>
-        <li><span class="year">2025</span>ASME 学生机构与机器人设计竞赛：金奖（国际第一）。</li>
-      `,
-
-      subInfo: `深圳技术大学 · 人工智能学院（<a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">学校官网</a>）<br>
-               清华大学 × 深圳零一学院（钱学森力学班 TEEP）（<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">官网介绍</a>）`,
-      location: "中国，深圳",
-      iconCV: "简历",
-      iconScholar: "Scholar（待补）",
-      iconOrcid: "ORCID（待补）",
-
-      h2About: "个人简介",
-      pAbout: `我是<a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">深圳技术大学</a>数据科学与大数据技术专业的本科生。
-        同时，作为通过<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">深圳零一学院</a>开展的钱学森力学班（TEEP）联合培养学生，
-        我专注于机械手抓取技术研究，重点是<strong>欠驱动机构</strong>与<strong>连杆机构设计</strong>，面向受限空间的轻薄物体操控与环境约束抓取。`,
-
-      h2Education: "教育背景",
-      ulEducation: `
-        <li><strong>深圳技术大学</strong> — 数据科学与大数据技术学士 (2023–2027) [<a href="https://www.sztu.edu.cn/" target="_blank" rel="noopener">学校官网</a>]</li>
-        <li><strong>清华大学 × 深圳零一学院</strong> — 钱学森力学班（TEEP）联合培养 (2024–至今) [<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank" rel="noopener">官网介绍</a>]</li>
-      `,
-
-      h2Publications: "代表性成果",
-      ulPublications: `
-        <li>
-          Qu S., Zhang W.
-          <em>Gamma Gripper: An Underactuated Environment-Adaptive Robotic Gripper Based on Scott-Russell Mechanism for Thin Object Manipulation</em>.
-          ICCAS 2025.（已接收）
-          [<a href="papers/ICCAS2025_Gamma_Qu.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>]
-          [<a href="https://www.bilibili.com/video/BV14RggzQEkM/" target="_blank" rel="noopener"><i class="fas fa-video"></i> Video</a>]
-        </li>
-
-        <li>
-          Qu S., Zhang W., Zhang C.
-          <em>Adaptive Grasp with Scott-Russell Linkages...</em>
-          ROBIO 2025.（已接收）
-          [<span class="disabled-link"><i class="fas fa-file-pdf"></i> PDF（待补）</span>]
-          [<span class="disabled-link"><i class="fas fa-link"></i> 项目页（待补）</span>]
-        </li>
-
-        <li>
-          Qu S., Zhang W.
-          <em>Gamma-X Gripper...</em>
-          ICIA 2025.（已接收）
-          [<span class="disabled-link"><i class="fas fa-file-pdf"></i> PDF（待补）</span>]
-          [<span class="disabled-link"><i class="fas fa-link"></i> 项目页（待补）</span>]
-        </li>
-
-        <li>
-          Qu S., Zhang W., Zhang C.
-          <em>TPL-Lambda Tendon Gripper: A Tendon-Driven Gripper with Pinching and Lifting Capability Based on Scott Mechanism</em>.
-          RAAI 2025.（已接收）
-          [<a href="papers/RAAI2025_TPL_Lambda_Qu.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>]
-          [<a href="https://www.bilibili.com/video/BV1rAFCzgEEN/" target="_blank" rel="noopener"><i class="fas fa-video"></i> Video</a>]
-        </li>
-      `,
-
-      h2Research: "研究与项目",
-      ulResearch: `
-        <li><strong>欠驱动机械手抓取研究（Gamma / TPL 系列）</strong><br>
-        面向轻薄物体抓取、受限空间操作、铲取、捏合与包络动作的机构设计与验证。</li>
-        <li><strong>多智能体节点集群优化</strong><br>
-        基于强化学习（RL）对广域网（WAN）路由效率与拓扑鲁棒性进行优化。</li>
-      `,
-
-      h2Awards: "荣誉与奖项",
-      awardAsme: `ASME 学生机构与机器人设计竞赛 — <strong>金奖</strong>（国际第一，2025）
-        [<a href="https://sites.google.com/site/asmemrc/design-competition-showcase" target="_blank" rel="noopener">竞赛官网</a>]
-        [<a href="https://sites.google.com/site/asmemrc/design-competition-showcase/2025-finalists" target="_blank" rel="noopener">2025 Finalists</a>]`,
-
-      h2Skills: "掌握技能",
-      ulSkills: `
-        <li>Python, C/C++, MATLAB</li>
-        <li>SolidWorks, Arduino, Linux, VS Code, Docker</li>
-        <li>中文（母语），英语（熟练），日语（熟练）</li>
-      `,
-
-      h2Outreach: "公众传播",
-      ulOutreach: `
-        <li>
-          研究内容与技术分享：
-          <a href="https://www.xiaohongshu.com/user/profile/651e09550000000024017d81?xsec_token=AB3KO9O-SieanLzGw5D8dD6aL2Kb6tTWjnLiq1oOdbY9s%3D&xsec_source=pc_search" target="_blank" rel="noopener">
-            小红书
-          </a>。
-        </li>
-      `,
-
-      footerCopyright: "&copy; 2025 屈士杰. 最近更新：2025年11月。"
-    }
-  };
-
-  const langToggleBtn = document.getElementById('lang-toggle');
-
-  function setLanguage(lang) {
-    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-    document.querySelectorAll('[data-lang-key]').forEach(el => {
-      const key = el.getAttribute('data-lang-key');
-      if (translations[lang] && translations[lang][key] !== undefined) {
-        if (el.tagName.toLowerCase() === 'title') {
-          document.title = translations[lang][key].replace(/<br\s*\/?>/g, ' ');
-        } else {
-          el.innerHTML = translations[lang][key];
-        }
-      }
-    });
-    localStorage.setItem('lang', lang);
+const copy = {
+  en: {
+    name: "Shijie Qu", navAbout: "About", navPublications: "Publications", navProjects: "Projects", navAwards: "Awards", navSkills: "Skills", navCV: "CV", cvText: "CV",
+    subinfo: "Undergraduate researcher in robotics at Shenzhen Technology University and Shenzhen X-Institute / TEEP.",
+    aboutTitle: "About",
+    aboutText: "I work on embodied robotic manipulation, with a focus on underactuated grippers, lightweight mechanisms, visuotactile sensing, and physically verifiable prototypes. My recent work includes Gamma grippers for thin-object scooping and adaptive grasping, TPL / LTO grippers for constrained-space industrial manipulation, and a GelSight-based dexterous-hand validation platform.",
+    pubTitle: "Publications", projectTitle: "Research and Projects",
+    p1Title: "Gamma Series Grippers", p1Text: "Scott-Russell and parallelogram mechanisms for thin-object pinching, scooping, and enveloping. Reported 94% asymmetric aluminum-foil scooping success and 98% daily-object grasping success.",
+    p2Title: "TPL / LTO Constrained-Space Grippers", p2Text: "Tendon-driven grippers for combined pinching and lifting, designed for grooved motors, inserted bolts, and post-grasp extraction in constrained environments.",
+    p3Title: "GelSight Dexterous-Hand Platform", p3Text: "Six-axis-arm-to-single-finger six-DOF validation platform with GelSight-based visuotactile reconstruction and force-control development.",
+    p4Title: "Embodied Dexterous-Hand Project", p4Text: "Provincial undergraduate innovation project on multimodal dexterous-hand design and autonomous operation.",
+    awardTitle: "Honors", awardText: "ASME Student Mechanism and Robot Design Competition, Gold Medal, 1st Place Internationally, Team Leader, 2025.",
+    skillTitle: "Skills", skillText: "Python, C/C++, MATLAB, Java; SolidWorks, mechanism design, electronic control, MuJoCo, ROS/RViz, robotic arm design, inverse kinematics; multi-agent reinforcement learning, Ray distributed training, RAG applications, YOLO, DeerFlow, RAGFlow; Linux, Docker, VS Code, Anaconda.",
+    footer: "© 2026 Shijie Qu. Last updated: July 2026."
+  },
+  zh: {
+    name: "屈士杰", navAbout: "简介", navPublications: "论文", navProjects: "项目", navAwards: "荣誉", navSkills: "技能", navCV: "简历", cvText: "English CV",
+    subinfo: "深圳技术大学与深圳零一学院 / TEEP 机器人方向本科生研究者。",
+    aboutTitle: "个人简介",
+    aboutText: "我关注机器人具身操作，重点是欠驱动机械夹爪、轻量化机构、视触觉感知和可被实体样机验证的机器人系统。近期工作包括面向轻薄物体铲取与自适应抓取的 Gamma 系列夹爪、面向工业受限空间操作的 TPL / LTO 系列夹爪，以及基于 GelSight 的灵巧手验证平台。",
+    pubTitle: "论文发表", projectTitle: "研究与项目",
+    p1Title: "Gamma 系列夹爪", p1Text: "基于 Scott-Russell 与平行四边形机构，实现轻薄物体捏取、铲取与包络抓取；铝箔非对称铲取成功率 94%，日常物体抓取成功率 98%。",
+    p2Title: "TPL / LTO 受限空间夹爪", p2Text: "基于腱绳驱动的捏取与抬升复合机构，面向凹槽电机、插入式螺栓等受限空间抓取后脱离问题。",
+    p3Title: "GelSight 灵巧手验证平台", p3Text: "六轴机械臂转单指六自由度验证平台，集成 GelSight 视触觉重构与力控系统开发。",
+    p4Title: "多模态具身灵巧手项目", p4Text: "省级大创项目，面向多模态灵巧手设计与自主操作研究。",
+    awardTitle: "荣誉", awardText: "ASME 学生机构与机器人设计竞赛（SMRDC）金奖，国际第一，队长，2025。",
+    skillTitle: "技能", skillText: "Python、C/C++、MATLAB、Java；SolidWorks、机构设计、电控系统、MuJoCo、ROS/RViz、机械臂设计、逆运动学；多智能体强化学习、Ray 分布式训练、RAG 应用、YOLO、DeerFlow、RAGFlow；Linux、Docker、VS Code、Anaconda。",
+    footer: "© 2026 屈士杰。最近更新：2026 年 7 月。"
   }
-
-  const savedLang = localStorage.getItem('lang') || 'en';
-  setLanguage(savedLang);
-
-  langToggleBtn.addEventListener('click', () => {
-    const current = document.documentElement.lang.startsWith('zh') ? 'zh' : 'en';
-    setLanguage(current === 'en' ? 'zh' : 'en');
+};
+function setLang(lang) {
+  document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    const key = node.getAttribute("data-i18n");
+    if (copy[lang][key]) node.innerHTML = copy[lang][key];
   });
-
+  document.getElementById("cv-link").href = lang === "zh" ? "cv_zh.html" : "cv_en.html";
+  document.getElementById("cv-link-inline").href = lang === "zh" ? "cv_zh.html" : "cv_en.html";
+  localStorage.setItem("lang", lang);
+}
+document.getElementById("lang-toggle").addEventListener("click", () => {
+  setLang(document.documentElement.lang.startsWith("zh") ? "en" : "zh");
 });
+setLang(localStorage.getItem("lang") || "en");
 </script>
 </body>
 </html>
